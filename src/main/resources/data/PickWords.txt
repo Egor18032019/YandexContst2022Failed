@@ -24,14 +24,11 @@
 Формат вывода
 Выведите N строк. В строке i должна находиться одна из строк correct, present или absent — результат совпадения в позиции i строки Q со строкой S.
 Пример 1
-Ввод
-Вывод
-
+Ввод:
 COVER
 CLEAR
 
-
-
+Вывод:
 correct
 absent
 present
@@ -39,14 +36,11 @@ absent
 correct
 
 Пример 2
-Ввод
-Вывод
-
+Ввод:
 ABBA
 AAAA
 
-
-
+Вывод:
 correct
 absent
 absent
@@ -54,12 +48,11 @@ correct
 
 Пример 3
 Ввод
-Вывод
 
 ABCBC
 BBACA
 
-
+Вывод
 
 present
 correct
