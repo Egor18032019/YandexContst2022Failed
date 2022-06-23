@@ -14,9 +14,11 @@ public class ProductReport {
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        String json = in.nextLine();
-        String[] NAME_CONTAINS = in.nextLine().trim().split(" ");
-        String name = NAME_CONTAINS[1];
+        String JSON = in.nextLine();
+        String NAME_CONTAINS = in.nextLine().trim();
+//                .split(" ");
+        String name =NAME_CONTAINS.replaceAll("NAME_CONTAINS","").trim();
+
         String[] PRICE_GREATER_THAN = in.nextLine().trim().split(" ");
         int priceGreater = Integer.parseInt(PRICE_GREATER_THAN[1]);
         String[] PRICE_LESS_THAN = in.nextLine().trim().split(" ");
@@ -25,18 +27,28 @@ public class ProductReport {
         LocalDate dateAfter = convertStrToLocalDate(DATE_AFTER[1]);
         String[] DATE_BEFORE = in.nextLine().trim().split(" ");
         LocalDate dateBefore = convertStrToLocalDate(DATE_BEFORE[1]);
+        in.close();
 
-        List<Product> productsList = getProductListFromJson(json);
-
-
+        long time = System.currentTimeMillis();
+        List<Product> productsList = getProductListFromJson(JSON);
+        /* распарсили и получили
+        [{"id": 1, "name": "Asus notebook","price": 1564,"date": "23.09.2021"},
+        {"id": 2, "name": "Earpods", "price": 2200, "date": "10.01.2022"},
+        {"id": 3, "name": "Keyboard", "price": 2500, "date": "05.06.2020"},
+        {"id": 4, "name": "Dell notebook","price": 2300,"date": "23.09.2021"}]
+*/
         List<Product> productsOut = productsList.stream()
                 .filter(
                         i ->
-                                i.getName().toLowerCase().contains(name.toLowerCase()) &&
+                                i.getName().toLowerCase().contains(
+                                        name.toLowerCase()
+                                ) &&
                                         i.getPrice() >= priceGreater &&
                                         i.getPrice() <= priceLess &&
                                         i.getDate().isAfter(dateAfter) &&
-                                        i.getDate().isBefore(dateBefore)).sorted(Comparator.comparingInt(Product::getId)).collect(Collectors.toList());
+                                        i.getDate().isBefore(dateBefore))
+                .sorted(Comparator.comparingInt(Product::getId))
+                .collect(Collectors.toList());
 
         JSONArray jsonArrayOut = new JSONArray();
         for (Product product : productsOut) {
@@ -47,20 +59,10 @@ public class ProductReport {
             jsonObjectOut.put("date", convertLocalDateToStr(product.getDate()));
             jsonArrayOut.add(jsonObjectOut);
         }
-        System.out.println(jsonArrayOut.toString());
-    }
-/*
-[{"id": 1, "name": "Asus notebook","price": 1564,"date": "23.09.2021"},
-{"id": 2, "name": "Earpods", "price": 2200, "date": "10.01.2022"},
-{"id": 3, "name": "Keyboard", "price": 2500, "date": "05.06.2020"},
-{"id": 4, "name": "Dell notebook","price": 2300,"date": "23.09.2021"}]
-NAME_CONTAINS notebook
-PRICE_GREATER_THAN 2000
-PRICE_LESS_THAN 2400
-DATE_AFTER 12.09.2021
-DATE_BEFORE 02.01.2022
+        System.out.println("time - " + (System.currentTimeMillis() - time));
 
- */
+        System.out.println(jsonArrayOut.toString()); // 43-51
+    }
 
 
     public static List<Product> getProductListFromJson(String json) {
