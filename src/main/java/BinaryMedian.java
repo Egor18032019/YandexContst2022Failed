@@ -6,56 +6,57 @@ public class BinaryMedian {
         Scanner reader = new Scanner(System.in);
         String firstLine = reader.nextLine();
         int count = Integer.parseInt(firstLine);
-        String[] stroke = reader.nextLine().trim().split("");
-        int[] answer = new int[stroke.length];
-        int nulls = 0;
-        int units = 0;
-        for (int i = 0; i < count; i++) {
-            if (stroke[i].equals("0")) {
-                nulls++;
-            } else {
-                units++;
-            }
-            if (i == 0) {
-                answer[i] = -1;
-            } else {
-
-                if (nulls == units) {
-                    answer[i] = -1;
-                } else {
-                    if (nulls > units) {
-                        if (stroke[i].equals("0")) {
-                            answer[i] = 1;
-                        } else {
-                            answer[i] = -1;
-                        }
-                    } else {
-                        if (stroke[i].equals("1")) {
-                            answer[i] = 1;
-                        } else {
-                            answer[i] = -1;
-                        }
-                    }
-                }
-
-            }
-
-        }
-
-        System.out.println(Arrays.toString(answer));
+//        String[] stroke = reader.nextLine().trim().split("");
+        String doubles = reader.nextLine().trim();
+        reader.close();
+        System.out.println(mediana(count, doubles));
     }
 
+    private static StringBuilder mediana(int count, String doubles) {
+        StringBuilder result = new StringBuilder();
+        int c0 = 0;
+        int c1 = 0;
 
+        for (int i = 0; i < count; i++) {
+            if (doubles.charAt(i) == '0')
+                c0++;
+            else
+                c1++;
+            if (i == 0) result.append("-1");
+            else if (doubles.charAt(i) == '0' && c0 > c1 && i != (count - 1))
+                result.append(" ").append("1");
+            else if (doubles.charAt(i) == '1' && c1 > c0 && i != (count - 1))
+                result.append(" ").append("1");
+            else if (i == 1 && c1 == c0)
+                result.append(" ").append("-1");
+            else
+                for (int j = 0; j <= i - 1; j++) {
+                    int cs0 = 0;
+                    int cs1 = 0;
+                    String subline = doubles.substring(j, i + 1);
+                    for (int k = 0; k < subline.length(); k++) {
+                        if (subline.charAt(k) == '0')
+                            cs0++;
+                        else
+                            cs1++;
+                    }
+                    if (doubles.charAt(i) == '0' && cs0 > cs1) {
+                        result.append(" ").append(j + 1);
+                        break;
+                    } else if (doubles.charAt(i) == '1' && cs1 > cs0) {
+                        result.append(" ").append(j + 1);
+                        break;
+                    } else if (doubles.charAt(i) == '1' && cs1 < cs0) {
+                        result.append(" ").append("-1");
+                        break;
+                    } else if (doubles.charAt(i) == '0' && cs0 < cs1) {
+                        result.append(" ").append("-1");
+                        break;
+                    }
+                }
+        }
+        return result;
+    }
 }
-/*
-5
-01001
 
-L1 = -1 по определению
-L2 = -1 так как  S[2] = 1 то  S[1,1] = 1 то есть медиана = 0.5 а == 1/2
-L3 =  1 так как S[0,1,2] = 010 медиана 0 a S[3] = 0
-L4 =  1 так как  S[0,1,2,3} = 0100 медина = 0 а S[4] = 0
-L5 = -1 так как S[0,1,2,3,4] = 01 001 то есть нолей 3 а единиц 2 медина равна 0
-              a S[5] = 1  == 1/2
 
- */

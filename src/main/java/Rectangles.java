@@ -1,19 +1,24 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.Scanner;
 
 public class Rectangles {
 
-    public static void main(String[] args) {
-        Scanner reader = new Scanner(System.in);
-        String firstLine = reader.nextLine();
+    public static void main(String[] args) throws IOException {
+        BufferedReader reader =
+                new BufferedReader(new InputStreamReader(System.in));
+
+        String firstLine = reader.readLine();
         int count = Integer.parseInt(firstLine);
         List<int[]> arrRec = new ArrayList<>();
+
         for (int i = 0; i < count; i++) {
-            String[] stroke = reader.nextLine().trim().split(" ");
+            String[] stroke = reader.readLine().trim().split(" ");
+
             int[] intFromStroke = new int[4];
-            int leftX = Integer.parseInt(stroke[0]);
+            int leftX = Integer.parseInt((stroke[0]));
             int leftY = Integer.parseInt(stroke[1]);
             int rigthX = Integer.parseInt(stroke[2]);
             int rightY = Integer.parseInt(stroke[3]);
@@ -27,6 +32,7 @@ public class Rectangles {
 
         // парсим
         int[] answer = new int[count];
+
         for (int i = 0; i < count; i++) {
             int leftX = arrRec.get(i)[0];
             int leftY = arrRec.get(i)[1];
@@ -40,6 +46,9 @@ public class Rectangles {
                 int leftYCompare = arrRec.get(z)[1];
                 int rigthXCompare = arrRec.get(z)[2];
                 int rightYCompare = arrRec.get(z)[3];
+                if(leftX>rigthXCompare)continue;
+                if(leftY>rightYCompare)continue;
+
                 boolean firstX = false;
                 if (leftX == leftXCompare || rigthX == rigthXCompare) {
                     firstX = true;
@@ -52,6 +61,8 @@ public class Rectangles {
                         }
                     }
                 }
+                if(!firstX)continue;
+
                 boolean firstY = false;
                 if (leftY == leftYCompare || rightY == rightYCompare) {
                     firstY = true;
@@ -64,26 +75,25 @@ public class Rectangles {
                         }
                     }
                 }
-                boolean isInterset = firstX && firstY;
-                if (isInterset) {
+                if(!firstY)continue;
+
                     answer[i] = answer[i] + 1;
-                }
+
             }
         }
-        System.out.println(Arrays.toString(answer));
+
+
+        for (int iterator : answer) {
+            System.out.print(iterator + " ");
+        }
     }
 
 }
 /*
-6 - кол-во прямоугольников
--2 -4 2  2   — координаты левого нижнего и правого верхнего углов.
- 1
--2 -4 0 -1
--2 -1 0  2
- 0 -4 2 -1
- 0 -1 2  2
--1 -2 1  0
-
-Вывод
-5 2 2 2 2 5
+Лучшее время
+ 8.014s
+35.49Mb
+	15
+	надо не больше 8секунда
+	как так то???
  */

@@ -6,21 +6,21 @@ public class HomeWork {
         Scanner reader = new Scanner(System.in);
         String firstLine = reader.nextLine();
         int count = Integer.parseInt(firstLine);
-        int[] answerArr = new int[count];
+        long[] answerArr = new long[count];
         for (int i = 0; i < count; i++) {
             String[] numbers = reader.nextLine().trim().split(" ");
-            int first = Integer.parseInt(numbers[0]);
-            int second = Integer.parseInt(numbers[1]);
-            int nod = givMeNOD(first, second);
+            long first = Long.parseLong(numbers[0]);
+            long second = Long.parseLong(numbers[1]);
+            long nod = givMeNOD(first, second);
 //            System.out.println("nod " + nod);
-            int factor;
+            long factor;
             if (nod == 1) {
                 factor = Math.max(first, second);
             } else {
                 factor = giveMeFactor(Math.max(first, second) / nod);
             }
 //            System.out.println("factor " + factor);
-            int answer;
+            long answer;
             if (first > second) {
                 answer = second * factor;
 //                System.out.println(givMeNOD(answer, first));
@@ -32,19 +32,19 @@ public class HomeWork {
             }
         }
         reader.close();
-        for (int i : answerArr){
+        for (long i : answerArr){
             System.out.println(i);
         }
     }
 
-    public static int givMeNOD(int n1, int n2) {
+    public static long givMeNOD(long n1, long n2) {
         if (n2 == 0) {
             return n1;
         }
         return givMeNOD(n2, n1 % n2);
     }
 
-    public static int giveMeFactor(int num) {
+    public static int giveMeFactor(long num) {
         int count = 2;
         while (num != 1) {
             if (num % count == 0) {
