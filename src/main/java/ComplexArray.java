@@ -18,14 +18,16 @@ public class ComplexArray {
             if (workBook.containsKey(s)) {
                 int values = workBook.get(s);
                 values++;
+                if (values>maxValue){
                 maxValue = values;
+                }
                 workBook.put(s, values);
             } else {
                 workBook.put(s, 0);
             }
         }
 
-        System.out.println(workBook.toString());
+//        System.out.println(workBook.toString());
         List<Integer> answer = new ArrayList<>();
         for (Map.Entry<String, Integer> entry : workBook.entrySet()) {
             if (entry.getValue().equals(maxValue)) {
