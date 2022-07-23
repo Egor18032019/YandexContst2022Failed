@@ -13,6 +13,7 @@ public class Arithmetics {
         // то обрабатывается прогрессия, у которой минимальный идентификатор.
         Map<Integer, Integer> workBook = new TreeMap<>();
         Map<Integer, Integer> workBookForDiff = new HashMap<>();
+
         for (int i = 0; i < count; i++) {
             String[] stroke = reader.readLine().trim().split(" ");
 

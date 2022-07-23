@@ -5,6 +5,7 @@ public class Hexagons {
     public static void main(String[] args) {
 
         Scanner reader = new Scanner(System.in);
+
         String[] first = reader.nextLine().trim().split(" ");
         int height = Integer.parseInt(first[0]);
         int width = Integer.parseInt(first[1]);
