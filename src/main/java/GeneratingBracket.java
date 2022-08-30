@@ -20,7 +20,24 @@ public class GeneratingBracket {
     private static int readLine() throws IOException {
         return Integer.parseInt(bufferedReader.readLine());
     }
+/*
+заметка
+Изменение предка:
+ если p — левый ребенок вершины pp
+ , то v становится левым ребенком pp,
+  иначе — правым.
 
+
+если v — левый ребенок вершины p, то:
+
+    p становится левым ребенком v;
+    vr остаётся правым ребенком v;
+    vl становится левым ребенком p;
+    pr остаётся правым ребенком p.
+
+
+
+ */
 
     private static void run() throws IOException {
         int n = readLine() * 2;

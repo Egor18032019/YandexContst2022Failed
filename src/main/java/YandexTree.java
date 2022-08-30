@@ -5,6 +5,9 @@ import java.util.List;
 
 public class YandexTree {
     private static BufferedReader bufferedReader = null;
+    static TreeNode pp;
+    static TreeNode parrent;
+    static TreeNode child;
 
     public static void main(String[] args) throws Exception {
         init();
@@ -29,8 +32,22 @@ public class YandexTree {
         inorder(treeNode, 1, peack);
 
         //номер вершины, обменявшейся местами со своим предком в i-ю ночь.
-        for (int i = 1; i < seckondLine.length; i++) {
+        for (int i = 0; i < seckondLine.length; i++) {
+            // надо ли так ?
+            pp = null;
+            parrent = null;
+            child = null;
+            boolean isParentLeft = false;
             int changesPeack = Integer.parseInt(seckondLine[i]);
+            System.out.println(changesPeack);
+            search(treeNode, changesPeack);
+            searchPP(treeNode, parrent.val, isParentLeft);
+            if (isParentLeft) {
+
+            }
+
+            System.out.println(pp);
+
             // ищем в дереве вершину с таким значением
             // и сразу предка ?
             // меняем их местами согласно приведенному алгоритму
@@ -60,6 +77,54 @@ public class YandexTree {
         }
     }
 
+    public static void search(TreeNode root, int changesPeack) {
+//        if (root == null) return;
+        if (root.left != null) {
+            if (root.left.val == changesPeack) {
+                child = root.left;
+                parrent = root;
+
+                System.out.println("с лево");
+                return;
+            }
+            search(root.left, changesPeack);
+        }
+        if (root.right != null) {
+            if (root.right.val == changesPeack) {
+                child = root.right;
+                parrent = root;
+
+                System.out.println("с права");
+                return;
+            }
+
+            search(root.right, changesPeack);
+        }
+
+
+    }
+
+
+    public static void searchPP(TreeNode root, int valueCHild, boolean isParentLeft) {
+        if (root.left != null) {
+            if (root.left.val == valueCHild) {
+                pp = root;
+                isParentLeft = true;
+                return;
+            }
+            searchPP(root.left, valueCHild);
+        }
+        if (root.right != null) {
+            if (root.right.val == valueCHild) {
+                pp = root;
+                isParentLeft = false;
+                return;
+            }
+            searchPP(root.right, valueCHild);
+        }
+
+    }
+
     public static class TreeNode {
         int val;
         TreeNode left;
@@ -76,6 +141,15 @@ public class YandexTree {
             this.val = val;
             this.left = left;
             this.right = right;
+        }
+
+        @Override
+        public String toString() {
+            return "TreeNode{" +
+                    "val=" + val +
+                    ", left=" + left +
+                    ", right=" + right +
+                    '}';
         }
     }
 }
