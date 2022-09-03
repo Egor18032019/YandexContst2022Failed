@@ -18,11 +18,11 @@ public class PickWord {
         String attempt = in.nextLine();
         in.close();
 //        --- начали проверку--
-        long time = System.currentTimeMillis();
-
-        if (word.trim().isEmpty() || attempt.trim().isEmpty()) {
-            System.out.println("correct");
-        }
+//        long time = System.currentTimeMillis();
+//
+//        if (word.trim().isEmpty() || attempt.trim().isEmpty()) {
+//            System.out.println("correct");
+//        }
 
         char[] wordToArray = word.toCharArray();
         char[] attemptToArray = attempt.toCharArray();
@@ -33,7 +33,7 @@ public class PickWord {
 
         for (int i = 0; i < lengthWord; i++) {
             if (wordToArray[i] == attemptToArray[i]) {
-                output[i] = "correct";
+                output[i] = "P";
                 wordToArray[i] = '*';
                 attemptToArray[i] = '*';
             }
@@ -51,7 +51,7 @@ public class PickWord {
                     if (wordToArray[k] == '*') continue;
                     boolean isPresent = attemptToArray[j] == wordToArray[k];
                     if (isPresent) {
-                        output[j] = "present";
+                        output[j] = "S";
                         wordToArray[k] = '*';
                         attemptToArray[j] = '*';
                         break;
@@ -60,12 +60,12 @@ public class PickWord {
                 }
             }
             if (output[j] == null) {
-                output[j] = "absent";
+                output[j] = "I";
             }
 
-            System.out.println(output[j]);
+            System.out.print(output[j]);
         }
-        System.out.println("time - " + (System.currentTimeMillis() - time));
+//        System.out.println("time - " + (System.currentTimeMillis() - time));
     }
 }
 

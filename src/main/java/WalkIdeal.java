@@ -30,10 +30,10 @@ public class WalkIdeal {
 
         for (int i = 0; i < firstLine.length(); i++) {
             boolean isWalk;
-            if (typeBracket.equals(")")) {
-                isWalk = arrCharStringForFirstLine[i] == ')';
+            if (typeBracket.equals("}")) {
+                isWalk = arrCharStringForFirstLine[i] == '}';
             } else {
-                isWalk = arrCharStringForFirstLine[i] == '(';
+                isWalk = arrCharStringForFirstLine[i] == '{';
             }
             if (!isWalk) continue;
             String workedFirstLine = firstLine.substring(0, i)  + firstLine.substring(i + 1);
@@ -57,7 +57,7 @@ public class WalkIdeal {
         String currentIteration = stroke;
         do {
             lastIteration = currentIteration;
-            currentIteration = lastIteration.replace("()", "");
+            currentIteration = lastIteration.replace("{}", "");
         } while (currentIteration.length() < lastIteration.length());
 
         return currentIteration;

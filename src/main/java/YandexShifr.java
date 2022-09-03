@@ -101,8 +101,18 @@ public class YandexShifr {
     }
 }
 /*
-2
-Volozh,Arcady,Yurievich,11,2,1964
-Segalovich,Ilya,Valentinovich,13,9,1964
+
+50 7 25 3632 A
+50 7 26 3632 C
+
+14 21 30 3632 A
+14 23 52 3632 B
+15 0   5 3632 C
+
+14 21 30 212372 A
+14 21 40 212372 B
+14 23 52 212372 S
+
+- 10+20 +60 +52 = 142
 
  */
