@@ -61,16 +61,22 @@ public class HHResume {
         if (firstSum < secondSum) {
             while (workedLimit < s) {
                 if (firstDeque.peek() != null) {
-                    workedLimit = workedLimit + firstDeque.pop();
-                    result.add(workedLimit);
-                    if (workedLimit > s) {
+                    int point = firstDeque.pop();
+                    if ((workedLimit + point) > s) {
                         break;
+                    } else {
+                        workedLimit = workedLimit + point;
+                        result.add(workedLimit);
                     }
                 } else {
-                    if (secondDeque.peek() != null) workedLimit = workedLimit + secondDeque.pop();
-                    result.add(workedLimit);
-                    if (workedLimit > s) {
-                        break;
+                    if (secondDeque.peek() != null) {
+                        int point = secondDeque.pop();
+                        if ((workedLimit + point) > s) {
+                            break;
+                        } else {
+                            workedLimit = workedLimit + point;
+                            result.add(workedLimit);
+                        }
                     }
                 }
             }
@@ -79,16 +85,22 @@ public class HHResume {
         if (secondSum < firstSum) {
             while (workedLimit < s) {
                 if (secondDeque.peek() != null) {
-                    workedLimit = workedLimit + secondDeque.pop();
-                    result.add(workedLimit);
-                    if (workedLimit > s) {
+                    int point = secondDeque.pop();
+                    if ((workedLimit + point) > s) {
                         break;
+                    } else {
+                        workedLimit = workedLimit + point;
+                        result.add(workedLimit);
                     }
                 } else {
-                    if (firstDeque.peek() != null) workedLimit = workedLimit + firstDeque.pop();
-                    result.add(workedLimit);
-                    if (workedLimit > s) {
-                        break;
+                    if (firstDeque.peek() != null) {
+                        int point = firstDeque.pop();
+                        if ((workedLimit + point) > s) {
+                            break;
+                        } else {
+                            workedLimit = workedLimit + point;
+                            result.add(workedLimit);
+                        }
                     }
                 }
             }
@@ -99,64 +111,79 @@ public class HHResume {
                     int firstPop = firstDeque.pop();
                     int secondPop = secondDeque.pop();
                     if (firstPop < secondPop) {
-                        workedLimit = workedLimit + firstPop;
-                        result.add(workedLimit);
-                        if (workedLimit > s) {
+                        if ((workedLimit + firstPop) > s) {
                             break;
+                        } else {
+                            workedLimit = workedLimit + firstPop;
+                            result.add(workedLimit);
                         }
-                        workedLimit = workedLimit + secondPop;
-                        result.add(workedLimit);
-                        if (workedLimit > s) {
+                        if ((workedLimit + secondPop) > s) {
                             break;
+                        } else {
+                            workedLimit = workedLimit + secondPop;
+                            result.add(workedLimit);
                         }
                     }
                     if (secondPop < firstPop) {
-                        workedLimit = workedLimit + secondPop;
-                        result.add(workedLimit);
-                        if (workedLimit > s) {
+                        if ((workedLimit + secondPop) > s) {
                             break;
+                        } else {
+                            workedLimit = workedLimit + secondPop;
+                            result.add(workedLimit);
                         }
-                        workedLimit = workedLimit + firstPop;
-                        result.add(workedLimit);
-                        if (workedLimit > s) {
+                        if ((workedLimit + firstPop) > s) {
                             break;
+                        } else {
+                            workedLimit = workedLimit + firstPop;
+                            result.add(workedLimit);
                         }
                     }
                     //ну это на всякий случай отдельно
                     if (secondPop == firstPop) {
-                        workedLimit = workedLimit + secondPop;
-                        result.add(workedLimit);
-                        if (workedLimit > s) {
+                        if ((workedLimit + firstPop) > s) {
                             break;
+                        } else {
+                            workedLimit = workedLimit + firstPop;
+                            result.add(workedLimit);
                         }
-                        workedLimit = workedLimit + firstPop;
-                        result.add(workedLimit);
-                        if (workedLimit > s) {
+                        if ((workedLimit + secondPop) > s) {
                             break;
+                        } else {
+                            workedLimit = workedLimit + secondPop;
+                            result.add(workedLimit);
                         }
                     }
                 } else {
                     if (secondDeque.peek() != null) {
-                        workedLimit = workedLimit + secondDeque.pop();
-                        result.add(workedLimit);
-                        if (workedLimit > s) {
+                        int point = secondDeque.pop();
+                        if ((workedLimit + point) > s) {
                             break;
+                        } else {
+                            workedLimit = workedLimit + point;
+                            result.add(workedLimit);
                         }
                     } else {
-                        if (firstDeque.peek() != null) workedLimit = workedLimit + firstDeque.pop();
-                        result.add(workedLimit);
-                        if (workedLimit > s) {
-                            break;
+                        if (firstDeque.peek() != null) {
+                            int point = firstDeque.pop();
+                            if ((workedLimit + point) > s) {
+                                break;
+                            } else {
+                                workedLimit = workedLimit + point;
+                                result.add(workedLimit);
+                            }
                         }
                     }
-                }
 
+                }
             }
         }
-        System.out.println(result.size() - 1);
+        System.out.println(result.size());
     }
 }
 /*
+1 1 1
+1 9
+
 6 4 10
 4 2
 2 1
