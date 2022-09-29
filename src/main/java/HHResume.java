@@ -1,6 +1,10 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 public class HHResume {
 
@@ -22,14 +26,155 @@ public class HHResume {
         int n = Integer.parseInt(firstLine[0]); //высота стопки
         int m = Integer.parseInt(firstLine[1]);//высота стопки
         int s = Integer.parseInt(firstLine[2]); // Маша устанавливает значение s максимальной суммы зарплат и
+        int length = Math.max(n, m);
+        ArrayDeque<Integer> firstDeque = new ArrayDeque<Integer>();
+        ArrayDeque<Integer> secondDeque = new ArrayDeque<Integer>();
 
+
+        //складываем в стопки
+        for (int i = 0; i < length; i++) {
+            String[] line = bufferedReader.readLine().split(" ");
+            String firstPoint = line[0];
+            String secondPoint = line[1];
+            if (!firstPoint.equals("-")) {
+                firstDeque.addLast(Integer.parseInt(firstPoint));
+            }
+            if (!secondPoint.equals("-")) {
+                secondDeque.addLast(Integer.parseInt(secondPoint));
+            }
+        }
+        int minLength = Math.min(n, m);
+        // находим меньшее
+        int firstSum = 0;
+        int secondSum = 0;
+        Iterator<Integer> itF = firstDeque.iterator();
+        Iterator<Integer> itS = secondDeque.iterator();
+
+        while (minLength > 0) {
+            minLength = minLength - 1;
+            firstSum = firstSum + itF.next();
+            secondSum = secondSum + itS.next();
+        }
+
+        List<Integer> result = new ArrayList<>();
+        int workedLimit = 0;
+        if (firstSum < secondSum) {
+            while (workedLimit < s) {
+                if (firstDeque.peek() != null) {
+                    workedLimit = workedLimit + firstDeque.pop();
+                    result.add(workedLimit);
+                    if (workedLimit > s) {
+                        break;
+                    }
+                } else {
+                    if (secondDeque.peek() != null) workedLimit = workedLimit + secondDeque.pop();
+                    result.add(workedLimit);
+                    if (workedLimit > s) {
+                        break;
+                    }
+                }
+            }
+        }
+
+        if (secondSum < firstSum) {
+            while (workedLimit < s) {
+                if (secondDeque.peek() != null) {
+                    workedLimit = workedLimit + secondDeque.pop();
+                    result.add(workedLimit);
+                    if (workedLimit > s) {
+                        break;
+                    }
+                } else {
+                    if (firstDeque.peek() != null) workedLimit = workedLimit + firstDeque.pop();
+                    result.add(workedLimit);
+                    if (workedLimit > s) {
+                        break;
+                    }
+                }
+            }
+        }
+        if (secondSum == firstSum) {
+            while (workedLimit < s) {
+                if (secondDeque.peek() != null && firstDeque.peek() != null) {
+                    int firstPop = firstDeque.pop();
+                    int secondPop = secondDeque.pop();
+                    if (firstPop < secondPop) {
+                        workedLimit = workedLimit + firstPop;
+                        result.add(workedLimit);
+                        if (workedLimit > s) {
+                            break;
+                        }
+                        workedLimit = workedLimit + secondPop;
+                        result.add(workedLimit);
+                        if (workedLimit > s) {
+                            break;
+                        }
+                    }
+                    if (secondPop < firstPop) {
+                        workedLimit = workedLimit + secondPop;
+                        result.add(workedLimit);
+                        if (workedLimit > s) {
+                            break;
+                        }
+                        workedLimit = workedLimit + firstPop;
+                        result.add(workedLimit);
+                        if (workedLimit > s) {
+                            break;
+                        }
+                    }
+                    //ну это на всякий случай отдельно
+                    if (secondPop == firstPop) {
+                        workedLimit = workedLimit + secondPop;
+                        result.add(workedLimit);
+                        if (workedLimit > s) {
+                            break;
+                        }
+                        workedLimit = workedLimit + firstPop;
+                        result.add(workedLimit);
+                        if (workedLimit > s) {
+                            break;
+                        }
+                    }
+                } else {
+                    if (secondDeque.peek() != null) {
+                        workedLimit = workedLimit + secondDeque.pop();
+                        result.add(workedLimit);
+                        if (workedLimit > s) {
+                            break;
+                        }
+                    } else {
+                        if (firstDeque.peek() != null) workedLimit = workedLimit + firstDeque.pop();
+                        result.add(workedLimit);
+                        if (workedLimit > s) {
+                            break;
+                        }
+                    }
+                }
+
+            }
+        }
+        System.out.println(result.size() - 1);
     }
 }
 /*
+6 4 10
+4 2
+2 1
+4 8
+6 5
+1 -
+7 -
+
+5 5 10
+5 1
+1 3
+1 3
+1 3
+1 3
+
 3 4 11
-        1 1    :Далее максимальное из n и m (max(n, m)) строк, на каждой из которых один из вариантов:
-        2 2    : два целых числа a и b через пробел (1≤a≤10 000, 1≤b≤10 000),
-        3 3    : a и символ - через пробел (1≤a≤10 000)
-        - 4    :- символ - и b через пробел (1≤b≤10 000)
-a и b  это  числа зарплата a[0..n-1] для одной стопки, и b[0..m-1]
+1 1
+2 2
+3 3
+- 4
  */
