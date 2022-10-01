@@ -46,19 +46,34 @@ public class HHResume {
         int minLength = Math.min(n, m);
         // находим меньшее
         int firstSum = 0;
+        int firstCount = 0;
         int secondSum = 0;
+        int secondCount= 0;
         Iterator<Integer> itF = firstDeque.iterator();
         Iterator<Integer> itS = secondDeque.iterator();
 
-        while (minLength > 0) {
-            minLength = minLength - 1;
+        do {
+            firstCount = firstCount + 1;
             firstSum = firstSum + itF.next();
+            if(!itF.hasNext())break;
+        } while (firstSum < s);
+
+        do {
+            secondCount = secondCount + 1;
             secondSum = secondSum + itS.next();
-        }
+            if(!itS.hasNext())break;
+        } while (secondSum < s);
+
+//
+//        while (minLength > 0) {
+//            minLength = minLength - 1;
+//            firstSum = firstSum + itF.next();
+//            secondSum = secondSum + itS.next();
+//        }
 
         List<Integer> result = new ArrayList<>();
         int workedLimit = 0;
-        if (firstSum < secondSum) {
+        if (secondCount < firstCount) {
             while (workedLimit < s && (firstDeque.peek() != null || secondDeque.peek() != null)) {
                 if (firstDeque.peek() != null) {
                     int point = firstDeque.peek();
@@ -82,7 +97,7 @@ public class HHResume {
             }
         }
 
-        if (secondSum < firstSum) {
+        if (firstCount < secondCount) {
             while (workedLimit < s && (firstDeque.peek() != null || secondDeque.peek() != null)) {
                 if (secondDeque.peek() != null) {
                     int point = secondDeque.peek();
@@ -105,7 +120,7 @@ public class HHResume {
                 }
             }
         }
-        if (secondSum == firstSum) {
+        if (firstCount == secondCount) {
             while (workedLimit < s && (firstDeque.peek() != null || secondDeque.peek() != null)) {
                 if (secondDeque.peek() != null && firstDeque.peek() != null) {
                     int firstPop = firstDeque.peek();
@@ -208,4 +223,12 @@ public class HHResume {
 2 2
 3 3
 - 4
+
+4 5 75
+1 70
+2 1
+3 1
+70 1
+- 1
+
  */

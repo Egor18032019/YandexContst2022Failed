@@ -70,7 +70,8 @@ public class HHFinancialFarmer {
 //   отсортировать по getEffectiveness
         // потом по getFullArea
         mapValues.sort(Comparator
-                .comparing(Region::getEffectiveness)
+                .comparingDouble(Region::getEffectiveness)
+                .reversed()
                 .thenComparing(Region::getFullArea));
         // брать из хранилища пока Площадь полезных участков не станет > 2
         for (Region i : mapValues) {
@@ -211,8 +212,22 @@ public class HHFinancialFarmer {
         public double getEffectiveness() {
             double answer;
             answer = (double) areaFertile / getFullArea();
+            System.out.println("getEffectiveness " + answer);
             return answer;
         }
+
+        //ToDo написать метод который будет на основе координат заново считать сумму
+        /*
+6 6
+1 1 1 1 1 1
+1 0 0 0 0 1
+1 0 1 0 0 1
+1 0 0 1 0 1
+1 0 0 0 0 1
+1 1 1 1 1 1
+
+тут эфективность должна быть 0.61 22/36  а не 20 . так как внутрение не считает
+         */
     }
 
     // TODO разобраться с ошибкой
@@ -266,8 +281,8 @@ public class HHFinancialFarmer {
 6 6
 1 1 1 1 1 1
 1 0 0 0 0 1
-1 0 1 1 0 1
-1 0 1 1 0 1
+1 0 1 0 0 1
+1 0 0 1 0 1
 1 0 0 0 0 1
 1 1 1 1 1 1
 //TODo перевернуть
@@ -307,4 +322,24 @@ public class HHFinancialFarmer {
 1 1
 0 0
 1 0
+
+6 9
+1 1 1 1 1 1
+1 0 0 0 0 1
+1 0 1 0 0 1
+1 0 0 1 0 1
+1 0 0 0 0 1
+1 1 1 1 1 1
+0 0 0 0 0 0
+0 1 1 0 0 0
+0 1 1 0 0 0
+
+
+6 6
+1 1 1 1 1 1
+1 0 0 0 0 1
+1 0 1 0 0 1
+1 0 1 1 0 1
+1 0 0 0 0 1
+1 1 1 1 1 1
  */
