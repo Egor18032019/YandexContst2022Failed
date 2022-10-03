@@ -9,13 +9,13 @@ public class WalkIdeal {
         final String firstLine = reader.readLine();
 
         String stroke = firstLine.replaceAll("[A-Za-zА-Яа-я-+-=-\\s]", "");
-//        System.out.println(stroke);
+        reader.close();
         if (stroke.isEmpty()) {
 //            System.out.println("Нет скобок");
             System.out.println(-1);
             return;
         }
-        // ()()()(())(()()
+
 
         String typeBracket = giveMeRightStroke(stroke);
         if (typeBracket.length() > 1) {
@@ -30,13 +30,13 @@ public class WalkIdeal {
 
         for (int i = 0; i < firstLine.length(); i++) {
             boolean isWalk;
-            if (typeBracket.equals(")")) {
-                isWalk = arrCharStringForFirstLine[i] == ')';
+            if (typeBracket.equals("}")) {
+                isWalk = arrCharStringForFirstLine[i] == '}';
             } else {
-                isWalk = arrCharStringForFirstLine[i] == '(';
+                isWalk = arrCharStringForFirstLine[i] == '{';
             }
             if (!isWalk) continue;
-            String workedFirstLine = firstLine.substring(0, i)  + firstLine.substring(i + 1);
+            String workedFirstLine = firstLine.substring(0, i) + firstLine.substring(i + 1);
 
             String workedStroke = workedFirstLine.replaceAll("[A-Za-zА-Яа-я-+-=-\\s]", "");
 
@@ -57,7 +57,7 @@ public class WalkIdeal {
         String currentIteration = stroke;
         do {
             lastIteration = currentIteration;
-            currentIteration = lastIteration.replace("()", "");
+            currentIteration = lastIteration.replace("{}", "");
         } while (currentIteration.length() < lastIteration.length());
 
         return currentIteration;

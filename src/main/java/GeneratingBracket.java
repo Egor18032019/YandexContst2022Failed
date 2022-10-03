@@ -20,7 +20,13 @@ public class GeneratingBracket {
     private static int readLine() throws IOException {
         return Integer.parseInt(bufferedReader.readLine());
     }
+/*
+заметка
 
+10 6
+5 7 4 7 8 7
+
+ */
 
     private static void run() throws IOException {
         int n = readLine() * 2;
