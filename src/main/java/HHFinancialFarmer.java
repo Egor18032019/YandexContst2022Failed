@@ -2,7 +2,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class HHFinancialFarmer {
     private static BufferedReader reader = null;
@@ -61,28 +60,43 @@ public class HHFinancialFarmer {
             return;
         }
 
-//        mapValues.sort(new ComparatorRegion());
-//        mapValues.sort(new ComparatorRegionFullArea());
-//        double filter = mapValues.get(0).getEffectiveness();
-//        List<Region> filteredArr = mapValues.stream()
-//                .filter(
-//                        n -> n.getEffectiveness() == filter).sorted(new ComparatorRegionFullArea()).collect(Collectors.toList());
-//   отсортировать по getEffectiveness
-        // потом по getFullArea
-        mapValues.sort(Comparator
-                .comparingDouble(Region::getEffectiveness)
-                .reversed()
-                .thenComparing(Region::getFullArea));
-        // брать из хранилища пока Площадь полезных участков не станет > 2
-        for (Region i : mapValues) {
-            int area = i.getAreaFertile();
-            if (area >= 2) {
-                System.out.println(i.getFullArea());
-                return;
-            }
-        }
-        System.out.println(0);
 
+//        mapValues.sort(Comparator
+//                .comparingDouble(Region::getEffectiveness)
+////                .reversed()
+//                .thenComparingInt(Region::getFullArea)
+//                .reversed());
+//        // брать из хранилища пока Площадь полезных участков не станет > 2
+//        for (Region i : mapValues) {
+//            //  так как мы до этого вызывали getEffectiveness то areaFertile должна быть заполнено
+//            int area = i._getAreaFertile();
+//            if (area >= 2) {
+//                System.out.println(i.getFullArea());
+//                return;
+//            }
+//        }
+
+        int resultPlots = 0;
+        int resultSize = 0;
+        for (HashMap.Entry<String, Region> entry : onlyRegion.entrySet()) {
+            int currentPlots = entry.getValue().getTruthAreaFertile();
+            int currentSize = entry.getValue().getFullArea();
+
+            if (resultSize * currentPlots > currentSize * resultPlots) {
+                resultPlots = currentPlots;
+                resultSize = currentSize;
+            } else if (resultSize * currentPlots == currentSize * resultPlots) {
+                if (resultSize < currentSize) {
+                    resultPlots = currentPlots;
+                    resultSize = currentSize;
+                }
+            } else if (resultSize == 0) {
+                resultPlots = currentPlots;
+                resultSize = currentSize;
+            }
+
+        }
+        System.out.println(resultSize);
 
     }
 
@@ -168,24 +182,23 @@ public class HHFinancialFarmer {
     }
 
     public static class Region {
-        private int areaFertile;
+        private int truthAreaFertile;
         private int lefTopX;
         private int leftTopY;
         private int rightDownX;
         private int rightDownY;
 
-        public Region(Integer areaFertile, int lefTopX, int leftTopY, int rightDownX, int rightDownY) {
-            this.areaFertile = areaFertile;
+        private int area;
+
+        public Region(int lefTopX, int leftTopY, int rightDownX, int rightDownY) {
             this.lefTopX = lefTopX;
             this.leftTopY = leftTopY;
             this.rightDownX = rightDownX;
             this.rightDownY = rightDownY;
         }
 
-        public void setAreaFertile(Integer areaFertile) {
-            if (areaFertile > this.areaFertile) {
-                this.areaFertile = areaFertile;
-            }
+        public void setTruthAreaFertile(Integer areaFertile) {
+            this.truthAreaFertile = areaFertile;
         }
 
         public void setCoordinate(int x, int y) {
@@ -201,60 +214,55 @@ public class HHFinancialFarmer {
             }
         }
 
-        public int getAreaFertile() {
-            return areaFertile;
+        public int _getAreaFertile() {
+            return truthAreaFertile;
         }
 
         public int getFullArea() {
-            return ((rightDownX - lefTopX + 1) * (rightDownY - leftTopY + 1));
+            int fullArea = (rightDownX - lefTopX + 1) * (rightDownY - leftTopY + 1);
+            area = fullArea;
+            return (fullArea);
         }
 
-        public double getEffectiveness() {
-            double answer;
-            answer = (double) areaFertile / getFullArea();
-            System.out.println("getEffectiveness " + answer);
+        public int getTruthAreaFertile() {
+            int answer = 0;
+            for (int x = lefTopX; x <= rightDownX; x++) {
+                for (int y = leftTopY; y <= rightDownY; y++) {
+                    byte point = pole[y][x];
+                    // '1'=50
+                    if (point == 50) {
+                        answer++;
+                    }
+                }
+            }
             return answer;
         }
 
-        //ToDo написать метод который будет на основе координат заново считать сумму
-        /*
-6 6
-1 1 1 1 1 1
-1 0 0 0 0 1
-1 0 1 0 0 1
-1 0 0 1 0 1
-1 0 0 0 0 1
-1 1 1 1 1 1
+        public double getEffectiveness() {
 
-тут эфективность должна быть 0.61 22/36  а не 20 . так как внутрение не считает
-         */
-    }
-
-    // TODO разобраться с ошибкой
-    // Доделать если эфиктивность одинакова
-    static class ComparatorRegion implements Comparator<Region> {
-        @Override
-        public int compare(Region c1, Region c2) {
-            return Double.compare(c2.getEffectiveness(), c1.getEffectiveness());
+            int truthAreaFertile = _getAreaFertile();
+            if (truthAreaFertile == 0) {
+                truthAreaFertile = getTruthAreaFertile();
+                setTruthAreaFertile(truthAreaFertile);
+            }
+//            System.out.println("truthAreaFertile " + truthAreaFertile);
+            double answer;
+            int areaRegion = getFullArea();
+            answer = (double) truthAreaFertile / areaRegion;
+//            System.out.println("getEffectiveness " + answer);
+            return answer;
         }
+
     }
 
-    static class ComparatorRegionFullArea implements Comparator<Region> {
-        @Override
-        public int compare(Region c1, Region c2) {
-            return Integer.compare(c2.getFullArea(), c1.getFullArea());
-        }
-    }
 
     public static void saveRegion(String key, int column, int row) {
         if (onlyRegion.containsKey(key)) {
             Region region = onlyRegion.get(key);
-            Integer newValue = region.getAreaFertile() + 1;
-            region.setAreaFertile(newValue);
             region.setCoordinate(column, row);
             onlyRegion.replace(key, region);
         } else {
-            Region r = new Region(1, column, row, column, row);
+            Region r = new Region(column, row, column, row);
             onlyRegion.put(key, r);
         }
     }
@@ -285,7 +293,6 @@ public class HHFinancialFarmer {
 1 0 0 1 0 1
 1 0 0 0 0 1
 1 1 1 1 1 1
-//TODo перевернуть
 
 
 5 3
