@@ -265,9 +265,17 @@ public class HHFinancialFarmer {
             Region r = new Region(column, row, column, row);
             onlyRegion.put(key, r);
         }
+
+
     }
 }
 /*
+
+
+
+
+
+
 2 4
 0 0
 1 1
