@@ -43,7 +43,7 @@ public class LogisticheskyiCentre {
             for (int j = 0; j < M; j++) {
                 int preAnswer = giveMeSumForR(i, j);
                 if (preAnswer == 29) {
-                    System.out.println(i + " " + j);
+//                    System.out.println(i + " " + j);
                 }
                 if (preAnswer > bigSumAroundR) bigSumAroundR = preAnswer;
             }
@@ -55,11 +55,11 @@ public class LogisticheskyiCentre {
     //     pole = new int[N][M]; 3 5
     public static int giveMeSumForR(int rowStart, int columnStart) {
         if (rowStart == 2 && columnStart == 0) {
-            System.out.println(",,??");
+//            System.out.println(",,??");
         }
         int answer = 0;
         if (rowStart == (N - 1) && columnStart == (M - 1)) {
-            System.out.println("нижний угол правый");
+//            System.out.println("нижний угол правый");
             int center = pole[rowStart][columnStart];
             for (int i = 1; i <= R; i++) {
                 int x = rowStart - i;
@@ -86,7 +86,7 @@ public class LogisticheskyiCentre {
             return answer;
         }
         if (rowStart == 0 && columnStart == (M - 1)) {
-            System.out.println("верхний угол правый");
+//            System.out.println("верхний угол правый");
             int center = pole[rowStart][columnStart];
             for (int i = 1; i <= R; i++) {
                 int d = rowStart + i;
@@ -112,7 +112,7 @@ public class LogisticheskyiCentre {
         }
 //        pole = new int[N][M]; 3 5
         if (rowStart == 0 && columnStart == 0) {
-            System.out.println("верхний угол левый");
+//            System.out.println("верхний угол левый");
             int center = pole[rowStart][columnStart];
             for (int i = 1; i <= R; i++) {
                 int d = rowStart + i;
@@ -137,7 +137,7 @@ public class LogisticheskyiCentre {
             return answer;
         }
         if (rowStart == (N - 1) && columnStart == 0) {
-            System.out.println("нижний угол левый");
+//            System.out.println("нижний угол левый");
             int center = pole[rowStart][columnStart];
             for (int i = 1; i <= R; i++) {
                 int u = rowStart - i;
@@ -162,7 +162,7 @@ public class LogisticheskyiCentre {
             return answer;
         }
         if (rowStart == 0) {
-            System.out.println("верхняя строка");
+//            System.out.println("верхняя строка");
             int center = pole[rowStart][columnStart];
             for (int i = 1; i <= R; i++) {
                 int d = rowStart + i;
@@ -204,7 +204,7 @@ public class LogisticheskyiCentre {
 3 0 3 3 0
          */
         if (rowStart == (N - 1)) {
-            System.out.println("нижняя строка");
+//            System.out.println("нижняя строка");
             int center = pole[rowStart][columnStart];
             for (int i = 1; i <= R; i++) {
                 int u = rowStart - i;
@@ -240,7 +240,7 @@ public class LogisticheskyiCentre {
             return answer;
         }
         if (columnStart == (M - 1)) {
-            System.out.println("справа");
+//            System.out.println("справа");
             int center = pole[rowStart][columnStart];
             for (int i = 1; i <= R; i++) {
                 int u = rowStart - i;
@@ -276,7 +276,7 @@ public class LogisticheskyiCentre {
             return answer;
         }
         if (columnStart == 0) {
-            System.out.println("слева");
+//            System.out.println("слева");
             int center = pole[rowStart][columnStart];
             for (int i = 1; i <= R; i++) {
                 int u = rowStart - i;

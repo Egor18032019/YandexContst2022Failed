@@ -27,7 +27,7 @@ public class InterestingPari {
             byte[] line = reader.readLine().getBytes();
             storage.put(i, line);
         }
-
+        reader.close();
         // сложили всё в хранилище
         /*
         Проходим циклами по хранилищу и сравниваем различия
@@ -40,13 +40,12 @@ public class InterestingPari {
                 byte[] point = storage.get(z);
                 int intFlag = 0;
                 for (int i = 0; i < point.length; i++) {
-                    //TODO спросить
-                    if (point.length != foo.length) break;
+//                    //TODO спросить
+//                    if (point.length != foo.length) break;
                     byte f = foo[i];
                     byte p = point[i];
-                    if (f == p) {
-                        continue;
-                    } else {
+                    if (f != p) {
+
                         // 0 начало \ 1 стало интересно \ 3 было интересно \ 4 неинтересно
                         if (intFlag == 1) {
                             intFlag = 4;
@@ -58,7 +57,7 @@ public class InterestingPari {
                 // и point всё хорошо ++
                 if (intFlag == 1) interesting++;
             }
-// нашли же уже все пары то удаяем
+// нашли же уже все пары то удаляем
             storage.remove(x);
         }
         System.out.println(interesting);
