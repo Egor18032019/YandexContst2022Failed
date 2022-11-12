@@ -66,7 +66,7 @@ public class Main {
     }
 
     public static int getLeastPrimesLinear(int n) {
-    // очень хитрый алгоритм поиска простых чисел
+        // очень хитрый алгоритм поиска простых чисел
         int length = n + 1;
         int[] lp = new int[length];
         List<Integer> primes = new ArrayList<>();
@@ -83,7 +83,11 @@ public class Main {
 
         }
         return primes.size();
+
+
     }
+
+
 
 }
 /*
