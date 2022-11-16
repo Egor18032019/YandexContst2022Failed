@@ -6,6 +6,7 @@ public class Dostoprimichetelnosti4 {
     public static void main(String[] args) {
         List<List<Integer>> ways = new ArrayList<>();
         int numberOfLongestWay = input(ways);
+        // теперь из листа дергаем один из самых больших элементов
         List<Integer> resultList = new ArrayList<>(ways.get(numberOfLongestWay));
         dynamicSolution(ways, resultList, numberOfLongestWay);
         output(resultList);
@@ -25,6 +26,7 @@ public class Dostoprimichetelnosti4 {
             if (size < 1 || size > 100) {
                 System.exit(1);
             }
+
             for (int j = 0; j < size; j++) {
                 int temp = in.nextInt();
                 if (temp < 0 || temp > 100) {
@@ -41,7 +43,7 @@ public class Dostoprimichetelnosti4 {
     private static void dynamicSolution(List<List<Integer>> ways, List<Integer> resultList, int numberOfLongestWay) {
         boolean[] isWayChecked = new boolean[NUMBER_GIRLS];
         isWayChecked[numberOfLongestWay] = true;
-
+        // и пока в массиве есть false
         while (hasAnChecked(isWayChecked)) {
             //List: first - length, second - start at the result, third - end at the result
             Map<Integer, List<Integer>> variants = new HashMap<>();
@@ -82,6 +84,7 @@ public class Dostoprimichetelnosti4 {
         int max = 0;
         int[][] table = new int[way.size()][resultList.size()];
         //for first row to protect from out of array exception
+        // Проверяем первый элемент есть ли где в выбраном массиве или в проверяемом
         for (int i = 0; i < resultList.size(); i++) {
             if (!way.get(0).equals(resultList.get(i))) {
                 table[0][i] = 0;
@@ -94,6 +97,7 @@ public class Dostoprimichetelnosti4 {
         }
 
         //for first column to protect from out of array exception
+        // Последний
         for (int i = 0; i < way.size(); i++) {
             if (!way.get(i).equals(resultList.get(0))) {
                 table[i][0] = 0;
@@ -104,7 +108,7 @@ public class Dostoprimichetelnosti4 {
                 table[i][0] = 1;
             }
         }
-
+        // теперь проверяем все элемента на равенство
         for (int i = 1; i < way.size(); i++) {
             for (int j = 1; j < resultList.size(); j++) {
                 if (way.get(i).equals(resultList.get(j))) {

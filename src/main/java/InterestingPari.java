@@ -2,6 +2,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
 
 public class InterestingPari {
@@ -13,6 +14,16 @@ public class InterestingPari {
         init();
         run();
     }
+    /*
+    другое решение
+    вложить всё в двухмерный массив
+    и бежать по нему циклом
+    сравнивая и потом заменяя
+    aaa
+    BBB
+    abb
+     */
+
 
     private static void init() {
         reader = new BufferedReader(new InputStreamReader(System.in));
@@ -23,9 +34,15 @@ public class InterestingPari {
         String[] firstLine = reader.readLine().split(" ");
         n = Integer.parseInt(firstLine[0]);
         storage = new HashMap<>();
+        HashSet<byte[]> unique = new HashSet<byte[]>();
         for (int i = 1; i <= n; i++) {
             byte[] line = reader.readLine().getBytes();
-            storage.put(i, line);
+            if (!unique.contains(line)) {
+                // проверка что бы в хранилище были все уникальные(если они одинаковые то они не по
+                // по идеи не смогут стать интересными
+                storage.put(i, line);
+                unique.add(line);
+            }
         }
         reader.close();
         // сложили всё в хранилище

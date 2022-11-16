@@ -1,38 +1,54 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
+import java.util.Arrays;
 
 public class YandexWatter {
-    private static BufferedReader bufferedReader = null;
+    public static void main(String[] args) throws IOException {
 
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out));
 
-    public static void main(String[] args) throws Exception {
-        init();
-        run();
-
-    }
-
-    private static void init() {
-        bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-    }
-
-    private static void run() throws IOException {
-        String firstLine = bufferedReader.readLine();
-        int zakazi = Integer.parseInt(firstLine);
-        for (int i = 0; i < zakazi; i++) {
-            String[] line = bufferedReader.readLine().split(" ");
-//            10 100 1000
-//            время начала и конца заказа и стоимость заказа соответственно.
+        int n = Integer.parseInt(reader.readLine());
+        int[][] orders = new int[n][3];
+        for (int i = 0; i < n; i++) {
+            orders[i] = Arrays.stream(reader.readLine().split(" "))
+                    .mapToInt(Integer::parseInt).toArray();
         }
-        int zaprosi = Integer.parseInt(bufferedReader.readLine());
 
-        for (int i = 0; i < zakazi; i++) {
-            String[] line = bufferedReader.readLine().split(" ");
-            // время начала и конца промежутка и тип запроса соответственно.
-//            1 10 1
-// 1 -начавших ? 2 - закончивших
+        n = Integer.parseInt(reader.readLine());
 
+        int[][] queries = new int[n][3];
+
+        for (int i = 0; i < n; i++) {
+            queries[i] = Arrays.stream(reader.readLine().split(" "))
+                    .mapToInt(Integer::parseInt).toArray();
         }
-    }
 
+        StringBuilder answer = new StringBuilder();
+        int sum;
+        for (int[] query : queries) {
+            sum = 0;
+            if (query[2] == 1) {
+                for (int[] order : orders) {
+                    if (order[0] >= query[0] && order[0] <= query[1]) {
+                        sum = sum + order[2];
+                    }
+                }
+            } else {
+                for (int[] order : orders) {
+                    if (order[1] >= query[0] && order[1] <= query[1]) {
+                        sum = sum + order[1] - order[0];
+                    }
+                }
+            }
+            answer.append(sum).append(" ");
+        }
+
+        System.out.println(answer.toString().trim());
+
+
+        reader.close();
+        writer.close();
+
+
+    }
 }

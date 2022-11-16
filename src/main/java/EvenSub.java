@@ -1,7 +1,7 @@
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
 
 public class EvenSub {
     private static Scanner reader = null;
@@ -23,19 +23,15 @@ public class EvenSub {
         k = reader.nextInt();
         int even = 0;
         Map<Integer, Boolean> all = new HashMap<>();
-        Map<Integer, Integer> trash = new HashMap<>();
-        int trashInt = 0;
 
         for (int i = 0; i < n; i++) {
             int iterable = reader.nextInt();
             if (iterable % 2 == 0) {
                 even++;
                 all.put(i, true);
-                trashInt++;
-                trash.put(i, trashInt);
+
             } else {
-                trashInt++;
-                trash.put(i, trashInt);
+
                 all.put(i, false);
 
             }
@@ -48,17 +44,18 @@ public class EvenSub {
             int centerCount = 0;
             int centerK = k;
 
-            int countTrash = trash.get(z);
-            if (countTrash == z) continue;
+
 
             for (int i = z; i < n; i++) {
                 boolean point = all.get(i);
-                if (point) {
+                 if (point) {
                     centerCount++;
                     if (centerCount == even) {
                         break;
                     }
+
                 } else {
+
                     centerK = centerK - 1;
                     if (centerK >= 0) {
                         centerCount++;

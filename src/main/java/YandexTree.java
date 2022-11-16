@@ -1,6 +1,7 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 
 public class YandexTree {
     private static BufferedReader bufferedReader = null;
@@ -20,18 +21,21 @@ public class YandexTree {
 
 
     private static void run() throws IOException {
+
         String[] firstLine = bufferedReader.readLine().split(" ");
         int peack = Integer.parseInt(firstLine[0]);
         int changes = Integer.parseInt(firstLine[1]);
+
         String[] seckondLine = bufferedReader.readLine().split(" ");
-        bufferedReader.close();
+
+
         // создаем дерево
         TreeNode treeNode = new TreeNode();
         // заполняем дерево
         inorder(treeNode, 1, peack, null);
 
         //номер вершины, обменявшейся местами со своим предком в i-ю ночь.
-        for (int i = 0; i < seckondLine.length; i++) {
+        for (int i = 0; i < changes; i++) {
             // надо ли так ?
             pp = null;
             p = null;
@@ -151,12 +155,12 @@ public class YandexTree {
 
     public static void answer(TreeNode treeNode) {
         if (treeNode.left == null && treeNode.right == null) {
-            System.out.print(treeNode.val+ " ");
+            System.out.print(treeNode.val + " ");
             return;
         }
         if (treeNode.left != null) {
             answer(treeNode.left);
-            System.out.print(treeNode.val+ " ");
+            System.out.print(treeNode.val + " ");
         } else {
             System.out.print(treeNode.val + " ");
         }
@@ -194,10 +198,18 @@ public class YandexTree {
     }
 
 
-
 }
 
         /*
+        1 1
+        1
+
+
+10 0
+5 7 4 7 8 7
+
+7 10 5 2 8 4 9 1 6 3
+
         В единственной строке через пробел требуется вывести номера вершин дерева после всех изменений в формате LVR, начиная с корня дерева.
 
 Формат LVR(v) определяется рекурсивно для вершины v.
