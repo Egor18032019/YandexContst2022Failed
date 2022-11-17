@@ -20,7 +20,7 @@ public class Sprint_2_A_DEK {
 
     public static class DEK {
         private String[] storage;
-        private int maxSize;
+        private final int maxSize;
         private int back;
         private int front;
         private int size;
@@ -45,6 +45,9 @@ public class Sprint_2_A_DEK {
                     front = back;
                 } else {
                     this.back++;
+                    if (back>=maxSize && size != maxSize) {
+                        back = 0; // 2
+                    }
                     this.storage[back] = value;
                 }
                 size++;
@@ -60,7 +63,13 @@ public class Sprint_2_A_DEK {
                     back = front;
                     this.storage[front] = value;
                 } else {
+                    /*
+
+                     */
                     this.front--; // когда <0
+                    if (front < 0 && size != maxSize) {
+                        front = maxSize - 1; // 2
+                    }
                     this.storage[front] = value;
                 }
                 size++;
@@ -78,7 +87,11 @@ public class Sprint_2_A_DEK {
                 this.storage[back] = "";
                 size--;
                 back--;
+                if(back<0&& size != maxSize){
 
+                         back =  maxSize -1;
+
+                }
                 System.out.println(answer);
             }
             return answer;
@@ -94,6 +107,13 @@ public class Sprint_2_A_DEK {
                 this.storage[front] = "";
                 size--;
                 front++;
+                if(front==(maxSize-1)){
+                    if (maxSize % 2 == 0) {
+                        front = maxSize / 2 - 1; // 0 1 2
+                    } else {
+                        front = maxSize / 2; // 0 1 2
+                    }
+                }
                 System.out.println(answer);
             }
             return answer;
@@ -111,7 +131,7 @@ public class Sprint_2_A_DEK {
         for (int i = 0; i < n; i++) {
             tokenizer = new StringTokenizer(reader.readLine());
             String command = tokenizer.nextToken();
-             switch (command) {
+            switch (command) {
                 case "push_front":
                     dek.push_front(tokenizer.nextToken());
                     break;
@@ -139,12 +159,70 @@ pop_back
 
 
 
+8
+4
+push_front 0
+push_front 1
+push_front 2
+push_front 3
+pop_back
+pop_back
+pop_back
+pop_back
+
+8
+4
+push_back 0
+push_back 1
+push_back 2
+push_back 3
+pop_back
+pop_back
+pop_back
+pop_back
+
+//2 0 1 3
+8
+4
+push_back 0
+push_back 1
+push_front 2
+push_back 3
+pop_back
+pop_back
+pop_back
+pop_back
+
+
+//2 0 1 3
+16
+4
+push_back 0
+push_back 1
+push_front 2
+push_back 3
+pop_back
+pop_back
+pop_back
+pop_back
+push_back 0
+push_back 1
+push_front 2
+push_back 3
+pop_back
+pop_back
+pop_back
+pop_back
+
 4
 4
-push_back 861
-pop_front
+push_front 861
 push_front -819
 pop_back
+pop_back
+
+
+
 
 
 9
