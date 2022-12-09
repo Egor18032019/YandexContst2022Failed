@@ -19,7 +19,6 @@ public class Tinkoff3 {
 
     private static void run() throws IOException {
         n = Integer.parseInt(reader.readLine());
-        int currentSizeColor = n;
         int min = n;
         int foo = 1;
         int bar = 1;
