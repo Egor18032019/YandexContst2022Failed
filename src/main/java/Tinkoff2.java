@@ -1,17 +1,18 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 public class Tinkoff2 {
     private static BufferedReader reader = null;
-    public static int a;
-    public static int b;
-    public static int c;
+    public static int a; // ценность
+    public static int b; // ценность
+    public static int c; // ценность
+
     public static int x;
     public static int y;
     public static int z;
+    public static int sum;
 
 
     public static void main(String[] args) throws Exception {
@@ -33,24 +34,34 @@ public class Tinkoff2 {
         x = Integer.parseInt(money[0]);
         y = Integer.parseInt(money[1]);
         z = Integer.parseInt(money[2]);
-        int sum = x * a + y * b + z * c;
-        Set<Integer> storage = new HashSet<>();
+        sum = x * a + y * b + z * c;
+        List<int[]> list = new ArrayList<>();
+        Set<String> storage = new HashSet<>();
 
-        for (int r = 0; r < 3; r++) {
-            int[] arr = new int[3];
-            for (int i = 0; i < sum; i++) {
-                arr[r] = i * a;
-                if (arr[r] > sum) {
-                    arr[r] = 0;
+        generator(0, 0, 0, storage);
+        System.out.println(storage.toString());
+        System.out.println(storage.size() + "size");
+    }
+
+    public static void generator(int x, int y, int z, Set<String> storage) {
+        int currentSum = x * a + y * b + z * c;
+        if (sum == currentSum) {
+//            из условия не ясно почему 28 а не
+            if (x  % a == 0) {
+                if (y % b == 0) {
+                    if (z  % c == 0) {
+                        storage.add(x * a + "" + y * b + "" + z * c);
+
+                    }
                 }
             }
-            for (int t = 1; t < 3; t++) {
+            return;
+        }
 
-                for (int y = 0; y < 3; y++) {
-
-                }
-            }
-
+        if (currentSum < sum) {
+            generator(x + 1, y, z, storage);
+            generator(x, y + 1, z, storage);
+            generator(x, y, z + 1, storage);
         }
     }
 }

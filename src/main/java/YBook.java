@@ -16,8 +16,6 @@ public class YBook {
         double max = -1001;
         for (int i = 0; i < books; i++) {
             int current = Integer.parseInt(recordings[i]);
-            if (current > max) max = current;
-            if (current < min) min = current;
 
             if (current < 0) {
 
@@ -27,10 +25,14 @@ public class YBook {
                     if (current < min) min = current;
 
                 }
+                // 2 -2 4 8
                 double answer = (Math.abs(max) + Math.abs(min)) / 2;
                 System.out.println(answer);
                 return;
             } else {
+                if (current > max) max = current;
+                if (current < min) min = current;
+
                 sum = sum + current;
             }
         }

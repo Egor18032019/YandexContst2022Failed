@@ -1,10 +1,7 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.Arrays;
-import java.util.StringTokenizer;
+import java.io.*;
+import java.util.*;
 
-public class YTechnicalDebt {
+public class YTechnicalDebtList {
     private static BufferedReader reader = null;
     public static int N; // задач
     public static int X; // дней
@@ -26,30 +23,31 @@ public class YTechnicalDebt {
         K = Integer.parseInt(stringTokenizer.nextToken());
         stringTokenizer = new StringTokenizer(reader.readLine());
         int day = 0;
-        int[] deadQueue = new int[N];
+        TreeSet<Integer> deadQueue = new TreeSet<>();
         for (int i = 0; i < N; i++) {
-            deadQueue[i] = Integer.parseInt(stringTokenizer.nextToken());
+            deadQueue.add(Integer.parseInt(stringTokenizer.nextToken()));
         }
-        Arrays.sort(deadQueue);
-//        System.out.println(Arrays.toString(deadQueue));
 
+        System.out.println(deadQueue);
         while (K != 0) {
-            int current = deadQueue[0];
+            int current = deadQueue.first();
+            deadQueue.remove(current);
             int diff = current - day;
             if (diff != 0) {
                 K = K - 1;
             }
             day = day + diff;
-            deadQueue[0] = current + X;
-            Arrays.sort(deadQueue);
-
+            int nextValue = current + X;
+            deadQueue.add(nextValue);
         }
 
         System.out.println(day);
     }
+
+
 }
 /*
-6 1 2
-9 2 3 3 4 5
+6 1 10
+1 1 1 1 1 1
 
  */
