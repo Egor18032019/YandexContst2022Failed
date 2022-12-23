@@ -2,7 +2,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class Main {
+public class Sprint_3_G_BigNumber {
     public static void main(String[] args) throws IOException {
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
             int n = Integer.parseInt(reader.readLine());
@@ -30,10 +30,23 @@ public class Main {
     public static boolean compare(String first, String second) {
         /*
         Если первая строка + вторая строка больше чем вторая строка + первая строка
-        Причем сравнивают так this.charAt(k)-другая строка.charAt(k)
+        Причем .compareTo сравнивает так=> this.charAt(k)-другая строка.charAt(k)
         и чтобы получить булеан сравниваю с нулем
 строки складываю чтобы одиноквая длина была
          */
         return first.concat(second).compareTo(second.concat(first)) > 0;
     }
 }
+/*
+3
+15 56 2
+=56215
+
+3
+1 783 2
+=78321
+
+3
+3 150 77
+==773150
+ */
