@@ -1,9 +1,10 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
 
-public class YandexSprintDraft {
+public class Sprint_4_SubStringLengthManyINTEGER {
     final static long base = 31;
     final static long mod = 100000000000000007L;
 
@@ -64,4 +65,3 @@ public class YandexSprintDraft {
         return power;
     }
 }
- 

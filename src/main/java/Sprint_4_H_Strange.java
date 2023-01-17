@@ -27,8 +27,7 @@ public class Sprint_4_H_Strange {
             System.out.println("NO");
             return;
         }
-        Set<Character> units = new HashSet<>();
-        for (int i = 0; i < length; i++) {
+         for (int i = 0; i < length; i++) {
             char firstPoint = first[i];
             char secondPoint = second[i];
             if (!storage.containsKey(firstPoint) && !storageReverse.containsKey(secondPoint)) {
