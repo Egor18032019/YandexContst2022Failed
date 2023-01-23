@@ -1,13 +1,14 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class YandexSprintDraft {
     private static BufferedReader reader = null;
-    public static int n;
-    public static int m;
+    public static int n; // количество пользователей
+    public static int m; //  количество пар друзей
 
     public static void main(String[] args) throws Exception {
         init();
@@ -21,113 +22,103 @@ public class YandexSprintDraft {
     private static void run() throws IOException {
         StringTokenizer stringTokenizer = new StringTokenizer(reader.readLine());
         n = Integer.parseInt(stringTokenizer.nextToken());
-
+        m = Integer.parseInt(stringTokenizer.nextToken());
+        Map<Integer, List<Integer>> storage = new HashMap<>();
+        for (int i = 1; i <= m; i++) {
+            String[] friends = reader.readLine().split(" ");
+            int x = Integer.parseInt(friends[0]);
+            int y = Integer.parseInt(friends[1]);
+            if (storage.containsKey(x)) {
+                storage.get(x).add(y);
+            } else {
+                List<Integer> value = new ArrayList<>();
+                value.add(y);
+                storage.put(x, value);
+            }
+            if (storage.containsKey(y)) {
+                storage.get(y).add(x);
+            } else {
+                List<Integer> value = new ArrayList<>();
+                value.add(x);
+                storage.put(y, value);
+            }
+        }
+        System.out.println(storage);
         for (int i = 1; i <= n; i++) {
-//            Map<Integer, Integer> storage = new HashMap<>();
-            List<int[]> storage = new ArrayList<>();
-            stringTokenizer = new StringTokenizer(reader.readLine());
-            stringTokenizer = new StringTokenizer(reader.readLine());
 
-            int rows = Integer.parseInt(stringTokenizer.nextToken());
-            int columns = Integer.parseInt(stringTokenizer.nextToken());
-            if(rows==3&&columns==3){
-                System.out.println();
-            }
-            for (int r = 1; r <= rows; r++) {
-                stringTokenizer = new StringTokenizer(reader.readLine());
-                int[] arr = new int[columns];
-                for (int c = 0; c < columns; c++) {
-                    arr[c] = Integer.parseInt(stringTokenizer.nextToken());
-                }
-                storage.add(arr);
-            }
-
-            stringTokenizer = new StringTokenizer(reader.readLine());
-            int click = Integer.parseInt(stringTokenizer.nextToken());
-            stringTokenizer = new StringTokenizer(reader.readLine());
-            if(click==5){
-                System.out.println();
-            }
-            for (int q = 1; q <= click; q++) {
-                int colum = Integer.parseInt(stringTokenizer.nextToken()) - 1;
-                quickSort(storage, 0, storage.size() - 1, colum);
-            }
-
-            for (int[] point : storage) {
-                System.out.println(Arrays.toString(point));
-            }
-            System.out.println();
         }
     }
 
-    public static void quickSort(List<int[]> sortArr, int low, int high, int colum) {
-        //завершить, если массив пуст или уже нечего делить
-        if (sortArr.size() == 0 || low >= high) return;
+    public static boolean crossroad(List<Long> store, Map<Long, Long> storage, int z) {
 
-        //выбираем опорный элемент
-        int middle = low + (high - low) / 2;
-        int border = sortArr.get(middle)[colum];
 
-        //разделияем на подмассивы и меняем местами
-        int i = low, j = high;
-        while (i <= j) {
-            while (sortArr.get(i)[colum] < border) i++;
-            while (sortArr.get(j)[colum] > border) j--;
-            if (i <= j) {
-                int[] swapI = sortArr.get(i);
-                int[] swapJ = sortArr.get(j);
-                sortArr.remove(i);
-                sortArr.add(i, swapJ);
-                sortArr.remove(j);
-                sortArr.add(j, swapI);
-                i++;
-                j--;
-            }
+        for (int i = 0; i < n - 1; i++) {
+            Long keyRight = storage.get(store.get(i));  //    23:59:58
+            Long valueLeft = store.get(i + 1); //       23:59:58
+//            if (z == 3) {
+//                System.out.println("compareTo");
+//                System.out.println(keyRight.compareTo(valueLeft));
+//            }
+//            if (keyRight >= valueLeft) return false;
+            if (keyRight.compareTo(valueLeft) >= 0) return false;
         }
-        //рекурсия для сортировки левой и правой части
-        if (low < j) quickSort(sortArr, low, j, colum);
-        if (high > i) quickSort(sortArr, i, high, colum);
+        return true;
     }
+
 }
 /*
-3  количество наборов входных данных.
+8 6
 
-4 3    количество строк и столбцов в таблице.
-3 4 1
-2 2 5
-2 4 2
-2 2 1
-3       количество кликов.
-2 1 3 номера столбцов, по которым были осуществлены клики. Клики даны в порядке их совершения.
-
+4 3
 3 1
-100
-9
-10
-2
-1 1
+1 2
+2 4
+2 5
 
-3 3
-2 11 72
-99 11 13
-2 8 13
-5
-2 3 2 1 2
+6 8
 
-int sumForPay = 0;
-            for (Map.Entry<Integer, Integer> entry : storage.entrySet()) {
-                int price = entry.getKey();
-                int count = entry.getValue();
-                int o = count % 3;
-                int kit = (count - o) / 3;
-                sumForPay = sumForPay + ((2 * kit) + o) * price;
-            }
 
-         Map<Integer, Integer> result = new LinkedHashMap<>();
-            storage.entrySet()
-                    .stream()
-                    .sorted(Map.Entry.<Integer, Integer>comparingByValue() )
-                    .forEach(entry -> result.put(entry.getKey(), entry.getValue()));
+
+4 => 1 => 5,
+3 => 2 => 3,
+2 => 3 => 2,
+1 => 4 = 1
+1 => 5 = 1 ??? не понятно не тут не с 1
+0 =>6  = 0
+0 0
+0 0
+У каждого пользователя этой сети не более 5 друзей
+y не является другом x и не совпадает с x
+;
+у пользователя y
+и у пользователя x
+есть хотя бы один общий друг;
+
+не существует такого пользователя y′
+, который удовлетворяет первым двум ограничениям,
+и у которого строго больше общих друзей с x, чем у y с x.
+8 10
+
+3 2
+2 4
+1 2
+1 3
+1 4
+1 8
+4 3
+5 6
+7 6
+5 7
+
+0  2
+8
+8
+8
+0
+0
+0
+2 3 4
+
 
 
  */
