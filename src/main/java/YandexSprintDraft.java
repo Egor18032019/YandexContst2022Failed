@@ -1,14 +1,11 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class YandexSprintDraft {
     private static BufferedReader reader = null;
-    public static int n; // количество пользователей
-    public static int m; //  количество пар друзей
+    public static int t; // количество наборов входных данных.
 
     public static void main(String[] args) throws Exception {
         init();
@@ -20,105 +17,113 @@ public class YandexSprintDraft {
     }
 
     private static void run() throws IOException {
-        StringTokenizer stringTokenizer = new StringTokenizer(reader.readLine());
-        n = Integer.parseInt(stringTokenizer.nextToken());
-        m = Integer.parseInt(stringTokenizer.nextToken());
-        Map<Integer, List<Integer>> storage = new HashMap<>();
-        for (int i = 1; i <= m; i++) {
-            String[] friends = reader.readLine().split(" ");
-            int x = Integer.parseInt(friends[0]);
-            int y = Integer.parseInt(friends[1]);
-            if (storage.containsKey(x)) {
-                storage.get(x).add(y);
-            } else {
-                List<Integer> value = new ArrayList<>();
-                value.add(y);
-                storage.put(x, value);
+        t = Integer.parseInt(reader.readLine());
+        for (int i = 1; i <= t; i++) {
+            StringTokenizer stringTokenizer = new StringTokenizer(reader.readLine());
+            int n = Integer.parseInt(stringTokenizer.nextToken()); // строк
+            int m = Integer.parseInt(stringTokenizer.nextToken()); // символов в каждой
+            String[][] storage = new String[n][m];
+            Map<String, int[]> symbols = new HashMap<>();
+            for (int row = 0; row < n; row++) {
+                String[] line = reader.readLine().split(""); // если памяти будт нехватать превести в байты
+                for (int column = 0; column < m; column++) {
+                    String point = line[column];
+                    if (!symbols.containsKey(point)) {
+                        int[] nm = new int[]{row, column};
+                        symbols.put(point, nm);
+                    }
+                    if (row % 2 == 0 && column % 2 != 0) {
+                        if (!point.equals(".")) {
+                            System.out.println("NO");
+                            return;
+                        }
+                    }
+                    if (column % 2 == 0 && row % 2 != 0) {
+                        if (!point.equals(".")) {
+                            System.out.println("NO");
+                            return;
+                        }
+                    }
+                    storage[row][column] = point;
+                }
             }
-            if (storage.containsKey(y)) {
-                storage.get(y).add(x);
+
+            Set<String> thisSymbolsCheck = new HashSet<>();
+            boolean isChek = check(storage, thisSymbolsCheck);
+            if (isChek) {
+                System.out.println("YES");
             } else {
-                List<Integer> value = new ArrayList<>();
-                value.add(x);
-                storage.put(y, value);
+                System.out.println("NO");
             }
-        }
-        System.out.println(storage);
-        for (int i = 1; i <= n; i++) {
 
         }
+
     }
 
-    public static boolean crossroad(List<Long> store, Map<Long, Long> storage, int z) {
+    public static boolean check(String[][] arr, Set<String> thisSymbolsCheck) {
+        for (int row = 0; row < arr.length; row++) {
 
+            for (int column = 0; column < arr[0].length; column++) {
+                String point = arr[row][column];
+                if (point.equals(".")) continue;
+                if (thisSymbolsCheck.add(point)) {
+                    checkArr(arr, point, row, column);
+                } else {
+                    return false;
+                }
 
-        for (int i = 0; i < n - 1; i++) {
-            Long keyRight = storage.get(store.get(i));  //    23:59:58
-            Long valueLeft = store.get(i + 1); //       23:59:58
-//            if (z == 3) {
-//                System.out.println("compareTo");
-//                System.out.println(keyRight.compareTo(valueLeft));
-//            }
-//            if (keyRight >= valueLeft) return false;
-            if (keyRight.compareTo(valueLeft) >= 0) return false;
+            }
         }
         return true;
     }
 
+    public static void checkArr(String[][] arr, String point, int row, int column) {
+        int n = arr.length;
+        int m = arr[0].length;
+
+
+        if ((column - 1) >= 0) {
+            String cell = arr[row][column - 1];
+            if (cell.equals(".")) {
+                checkArr(arr, point, row, column - 1);
+            }
+            if (Objects.equals(cell, point)) {
+                arr[row][column - 1] = "1";
+                checkArr(arr, point, row, column - 1);
+            }
+        }
+        if ((column + 1) < m) {
+            String cell = arr[row][column + 1];
+            if (cell.equals(".")) {
+                checkArr(arr, point, row, column + 1);
+            }
+            if (Objects.equals(cell, point)) {
+                arr[row][column + 1] = "1";
+                checkArr(arr, point, row, column + 1);
+            }
+        }
+        if ((row + 1) < n && (column + 1) < m) {
+            String cell = arr[row + 1][column + 1];
+
+            if (Objects.equals(cell, point)) {
+                arr[row + 1][column + 1] = "1";
+                checkArr(arr, point, row + 1, column + 1);
+            }
+        }
+        if ((row + 1) < n && (column - 1) >= 0) {
+            String cell = arr[row + 1][column - 1];
+
+            if (Objects.equals(cell, point)) {
+                arr[row + 1][column - 1] = "1";
+                checkArr(arr, point, row + 1, column - 1);
+            }
+        }
+
+    }
+
 }
 /*
-8 6
-
-4 3
-3 1
-1 2
-2 4
-2 5
-
-6 8
-
-
-
-4 => 1 => 5,
-3 => 2 => 3,
-2 => 3 => 2,
-1 => 4 = 1
-1 => 5 = 1 ??? не понятно не тут не с 1
-0 =>6  = 0
-0 0
-0 0
-У каждого пользователя этой сети не более 5 друзей
-y не является другом x и не совпадает с x
-;
-у пользователя y
-и у пользователя x
-есть хотя бы один общий друг;
-
-не существует такого пользователя y′
-, который удовлетворяет первым двум ограничениям,
-и у которого строго больше общих друзей с x, чем у y с x.
-8 10
-
-3 2
-2 4
-1 2
-1 3
-1 4
-1 8
-4 3
-5 6
-7 6
-5 7
-
-0  2
-8
-8
-8
-0
-0
-0
-2 3 4
-
-
-
+R.R.R.G
+.Y.G.G.
+B.Y.V.V
  */
