@@ -3,8 +3,9 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.*;
 
-public class YandexSprintDraft {
+public class Ozon_H_ValidationMap {
     private static BufferedReader reader = null;
+
     public static int t; // количество наборов входных данных.
 
     public static void main(String[] args) throws Exception {
@@ -139,8 +140,3 @@ public class YandexSprintDraft {
     }
 
 }
-/*
-R.R.R.G
-.Y.G.G.
-B.Y.V.V
- */
