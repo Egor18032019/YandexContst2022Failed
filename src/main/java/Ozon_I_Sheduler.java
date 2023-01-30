@@ -1,11 +1,13 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.*;
+import java.util.Map;
+import java.util.StringTokenizer;
+import java.util.TreeMap;
 
-public class YandexSprintDraft {
+public class Ozon_I_Sheduler {
     private static BufferedReader reader = null;
-    public static int n; // количество процессоров
+    public static int n; // количество процов
     public static int m; // количество задач
     public static int t; // количество наборов входных данных.
 
@@ -25,7 +27,6 @@ public class YandexSprintDraft {
         String[] energy = reader.readLine().split(" "); //  3 2 6 4 в секунду
         Map<Integer, Integer> servers = new TreeMap<>(); // вроде авто сортировка по ключу из коробки
         long sum = 0;
-        TreeSet<Proc> procBusySet = new TreeSet<>();
         for (int row = 0; row < n; row++) {
             int key = Integer.parseInt(energy[row]);
             servers.put(key, 0);
@@ -39,11 +40,6 @@ public class YandexSprintDraft {
 //  2 3 4 6
                 int key = entry.getKey();
                 int workedTime = start + time;
-                if (procBusySet.size() == 0) {
-                    procBusySet.add(new Proc(key, workedTime));
-                }else {
-
-                }
                 int oldValue = entry.getValue();
                 boolean timeIsEnd = oldValue <= start;
                 if (timeIsEnd) {
@@ -58,36 +54,6 @@ public class YandexSprintDraft {
         System.out.println(sum);
     }
 
-    static class Proc implements Comparable<Proc> {
-        private Integer power;
-        private Integer endWorkTime;
-
-        public Proc(int power, int endWorkTime) {
-            this.power = power;
-            this.endWorkTime = endWorkTime;
-        }
-
-        public int getPower() {
-            return power;
-        }
-
-        public int getEndWorkTime() {
-            return endWorkTime;
-        }
-
-        public void setEndWorkTime(int endWorkTime) {
-            this.endWorkTime = endWorkTime;
-        }
-
-        @Override
-        public int compareTo(Proc o) {
-            int result = this.endWorkTime.compareTo(o.endWorkTime);
-            if (0 == result)
-                result = this.power.compareTo(o.power);
-            return result;
-        }
-    }
-}
     /*
     Частичное решение по времени не успеваю
  Сделать две очереди ?
@@ -103,6 +69,7 @@ TODO обдумать как можно по другому
      */
 
 
+}
 /*
 
  */
