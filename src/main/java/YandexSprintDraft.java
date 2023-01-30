@@ -25,37 +25,45 @@ public class YandexSprintDraft {
         String[] energy = reader.readLine().split(" "); //  3 2 6 4 в секунду
         Map<Integer, Integer> servers = new TreeMap<>(); // вроде авто сортировка по ключу из коробки
         long sum = 0;
+        int[] storage = new int[n];
         TreeSet<Proc> procBusySet = new TreeSet<>();
         for (int row = 0; row < n; row++) {
             int key = Integer.parseInt(energy[row]);
-            servers.put(key, 0);
+//            servers.put(key, 0);
+            storage[row] = key;
         }
+//        Collections.sort(storage);
+        Arrays.sort(storage);
         for (int i = 1; i <= m; i++) {
             stringTokenizer = new StringTokenizer(reader.readLine());
             int start = Integer.parseInt(stringTokenizer.nextToken()); // момент прихода
             int time = Integer.parseInt(stringTokenizer.nextToken()); // время ее выполнения.
+            int workedTime = start + time;
+            if (procBusySet.size() == 0) {
+                procBusySet.add(new Proc(storage[0], workedTime));
+            } else {
+                int setCount = procBusySet.size();
+                for (int j = 0; j < setCount; j++) {
+                    Proc procBusy = procBusySet.first();
+                    if (procBusy.getEndWorkTime() <= start) {
+                        procBusySet.remove(procBusy);
+                    }else {
+                        // берем следующий проци вставяем в очередь
+                    }
 
-            for (Map.Entry<Integer, Integer> entry : servers.entrySet()) {
-//  2 3 4 6
-                int key = entry.getKey();
-                int workedTime = start + time;
-                if (procBusySet.size() == 0) {
-                    procBusySet.add(new Proc(key, workedTime));
-                }else {
-
-                }
-                int oldValue = entry.getValue();
-                boolean timeIsEnd = oldValue <= start;
-                if (timeIsEnd) {
-                    sum = sum + (long) time * key;
+                    int oldValue = entry.getValue();
+                    boolean timeIsEnd = oldValue <= start;
+                    if (timeIsEnd) {
+                        sum = sum + (long) time * key;
 //                    System.out.println(time * key);
-                    servers.put(key, workedTime);
-                    break;
+                        servers.put(key, workedTime);
+                        break;
+                    }
                 }
-            }
 
+            }
+            System.out.println(sum);
         }
-        System.out.println(sum);
     }
 
     static class Proc implements Comparable<Proc> {
