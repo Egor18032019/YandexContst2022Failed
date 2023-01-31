@@ -44,7 +44,8 @@ public class Ozon_I_Sheduler {
                 boolean timeIsEnd = oldValue <= start;
                 if (timeIsEnd) {
                     sum = sum + (long) time * key;
-//                    System.out.println(time * key);
+                    System.out.println(time);
+                    System.out.println(key);
                     servers.put(key, workedTime);
                     break;
                 }
