@@ -26,6 +26,7 @@ public class Ozon_I_Sheduler {
         m = Integer.parseInt(stringTokenizer.nextToken());
         String[] energy = reader.readLine().split(" "); //  3 2 6 4 в секунду
         Map<Integer, Integer> servers = new TreeMap<>(); // вроде авто сортировка по ключу из коробки
+        Map<Integer, Integer> busySet = new TreeMap<>(); // вроде авто сортировка по ключу из коробки
         long sum = 0;
         for (int row = 0; row < n; row++) {
             int key = Integer.parseInt(energy[row]);
@@ -35,25 +36,41 @@ public class Ozon_I_Sheduler {
             stringTokenizer = new StringTokenizer(reader.readLine());
             int start = Integer.parseInt(stringTokenizer.nextToken()); // момент прихода
             int time = Integer.parseInt(stringTokenizer.nextToken()); // время ее выполнения.
+            int workedTime = start + time;
+            boolean addInBusySet = false; //
 
-            for (Map.Entry<Integer, Integer> entry : servers.entrySet()) {
-//  2 3 4 6
-                int key = entry.getKey();
-                int workedTime = start + time;
-                int oldValue = entry.getValue();
-                boolean timeIsEnd = oldValue <= start;
-                if (timeIsEnd) {
-                    sum = sum + (long) time * key;
-                    System.out.println(time);
-                    System.out.println(key);
-                    servers.put(key, workedTime);
-                    break;
+            if (busySet.size() > 0) {
+                for (Map.Entry<Integer, Integer> entry : busySet.entrySet()) {
+                    int key = entry.getKey();
+                    int oldValue = entry.getValue();
+                    addInBusySet = oldValue <= start;
+                    if (addInBusySet) {
+                        sum = sum + (long) time * key;
+                        busySet.put(key, workedTime);
+                        break;
+                    }
                 }
             }
+            if (!addInBusySet) {
+                if (servers.size() > 0) {
+                    for (Map.Entry<Integer, Integer> entry : servers.entrySet()) {
+                        int key = entry.getKey();
+                        int oldValue = entry.getValue();
+                        boolean timeIsEnd = oldValue <= start;
+                        if (timeIsEnd) {
+                            sum = sum + (long) time * key;
 
+                            servers.remove(key);
+                            busySet.put(key, workedTime);
+                            break;
+                        }
+                    }
+                }
+            }
         }
-        System.out.println(sum);
+            System.out.println(sum);
     }
+}
 
     /*
     Частичное решение по времени не успеваю
@@ -69,8 +86,3 @@ TODO обдумать как можно по другому
 
      */
 
-
-}
-/*
-
- */
