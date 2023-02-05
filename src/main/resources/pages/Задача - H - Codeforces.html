@@ -1,0 +1,1368 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<!-- saved from url=(0084)https://routejunior.contest.codeforces.com/group/H3VxISVcTk/contest/425602/problem/H -->
+<html lang="ru"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="X-Csrf-Token" content="5ed57794c16e0b5dd523d51cc308dff1">
+    <meta id="viewport" name="viewport" content="width=device-width, initial-scale=0.01">
+
+
+    <script type="text/javascript" src="./Задача - H - Codeforces_files/jquery-1.8.3.js"></script>
+    <script type="application/javascript">
+        window.standaloneContest = true;
+        function adjustViewport() {
+            var screenWidthPx = Math.min($(window).width(), window.screen.width);
+            var siteWidthPx = 1100; // min width of site
+            var ratio = Math.min(screenWidthPx / siteWidthPx, 1.0);
+            var viewport = "width=device-width, initial-scale=" + ratio;
+            $('#viewport').attr('content', viewport);
+            var style = $('<style>html * { max-height: 1000000px; }</style>');
+            $('html > head').append(style);
+        }
+
+        if ( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
+            adjustViewport();
+        }
+
+        /* Protection against trailing dot in domain. */
+        let hostLength = window.location.host.length;
+        if (hostLength > 1 && window.location.host[hostLength - 1] === '.') {
+            window.location = window.location.protocol + "//" + window.location.host.substring(0, hostLength - 1);
+        }
+    </script>
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="expires" content="-1">
+    <meta http-equiv="profileName" content="h1">
+    <meta name="google-site-verification" content="OTd2dN5x4nS4OPknPI9JFg36fKxjqY0i1PSfFPv_J90">
+    <meta property="fb:admins" content="100001352546622">
+    <meta property="og:image" content="/static/images/codeforces-sponsored-by-ton.png">
+    <link rel="image_src" href="https://routejunior.contest.codeforces.com/static/images/codeforces-sponsored-by-ton.png">
+    <meta property="og:title" content="Задача - H - Codeforces">
+    <meta property="og:description" content="">
+    
+    <meta property="og:site_name" content="Codeforces">
+    <meta name="uc" content="e81a061e58c69bab814db23351d3349a542f098d">
+    <meta name="usmc" content="a66be4619570f22354b06a7bf4f194f46ef1d49b">
+    
+    <meta name="cc" content="a0515d2c7d11d7e6b2e0b8f91efb04dacb322389">
+    <meta name="pc" content="84056654f2324ff306d6a48b90d49e3273f6273e">
+    
+    <meta name="utc_offset" content="+03:00">
+    <meta name="verify-reformal" content="f56f99fd7e087fb6ccb48ef2">
+    <title>Задача - H - Codeforces</title>
+        <meta name="description" content="Codeforces. Соревнования и олимпиады по информатике и программированию, сообщество программистов">
+        <meta name="keywords" content="программирование информатика контест олимпиада алгоритмы c++ java графы vkcup">
+    <meta name="robots" content="index, follow">
+
+    <link rel="stylesheet" href="./Задача - H - Codeforces_files/font-awesome.min.css" type="text/css" charset="utf-8">
+    <link rel="stylesheet" href="./Задача - H - Codeforces_files/line-awesome.min.css" type="text/css" charset="utf-8">
+
+
+
+    <link rel="apple-touch-icon" sizes="57x57" href="https://routejunior.contest.codeforces.com/static/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="https://routejunior.contest.codeforces.com/static/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="https://routejunior.contest.codeforces.com/static/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="https://routejunior.contest.codeforces.com/static/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="https://routejunior.contest.codeforces.com/static/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="https://routejunior.contest.codeforces.com/static/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="https://routejunior.contest.codeforces.com/static/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="https://routejunior.contest.codeforces.com/static/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://routejunior.contest.codeforces.com/static/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="https://routejunior.contest.codeforces.com/static/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://routejunior.contest.codeforces.com/static/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="https://routejunior.contest.codeforces.com/static/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://routejunior.contest.codeforces.com/static/favicon-16x16.png">
+    <link rel="manifest" href="https://routejunior.contest.codeforces.com/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/static/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <!--CombineResourcesFilter-->
+    <link rel="stylesheet" href="./Задача - H - Codeforces_files/prettify.css" type="text/css" charset="utf-8">
+    <link rel="stylesheet" href="./Задача - H - Codeforces_files/clear.css" type="text/css" charset="utf-8">
+    <link rel="stylesheet" href="./Задача - H - Codeforces_files/style.css" type="text/css" charset="utf-8">
+    <link rel="stylesheet" href="./Задача - H - Codeforces_files/ttypography.css" type="text/css" charset="utf-8">
+    <link rel="stylesheet" href="./Задача - H - Codeforces_files/problem-statement.css" type="text/css" charset="utf-8">
+    <link rel="stylesheet" href="./Задача - H - Codeforces_files/second-level-menu.css" type="text/css" charset="utf-8">
+    <link rel="stylesheet" href="./Задача - H - Codeforces_files/roundbox.css" type="text/css" charset="utf-8">
+    <link rel="stylesheet" href="./Задача - H - Codeforces_files/datatable.css" type="text/css" charset="utf-8">
+    <link rel="stylesheet" href="./Задача - H - Codeforces_files/table-form.css" type="text/css" charset="utf-8">
+    <link rel="stylesheet" href="./Задача - H - Codeforces_files/topic.css" type="text/css" charset="utf-8">
+    <link rel="stylesheet" href="./Задача - H - Codeforces_files/jquery.jgrowl.css" type="text/css" charset="utf-8">
+    <link rel="stylesheet" href="./Задача - H - Codeforces_files/facebox.css" type="text/css" charset="utf-8">
+    <link rel="stylesheet" href="./Задача - H - Codeforces_files/jquery.wysiwyg.css" type="text/css" charset="utf-8">
+    <link rel="stylesheet" href="./Задача - H - Codeforces_files/jquery.autocomplete.css" type="text/css" charset="utf-8">
+    <link rel="stylesheet" href="./Задача - H - Codeforces_files/codeforces.datepick.css" type="text/css" charset="utf-8">
+    <link rel="stylesheet" href="./Задача - H - Codeforces_files/colorbox.css" type="text/css" charset="utf-8">
+    <link rel="stylesheet" href="./Задача - H - Codeforces_files/jquery.drafts.css" type="text/css" charset="utf-8">
+        <link rel="stylesheet" href="./Задача - H - Codeforces_files/community.css" type="text/css" charset="utf-8">
+        <link rel="stylesheet" href="./Задача - H - Codeforces_files/groups.css" type="text/css" charset="utf-8">
+        <link rel="stylesheet" href="./Задача - H - Codeforces_files/sidebar-menu.css" type="text/css" charset="utf-8">
+
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config;executed=true">
+    MathJax.Hub.Config({
+      tex2jax: {inlineMath: [['$$$','$$$']], displayMath: [['$$$$$$','$$$$$$']]}
+    });
+    MathJax.Hub.Register.StartupHook("End", function () {
+        Codeforces.runMathJaxListeners();
+    });
+    </script>
+    <script type="text/javascript" async="" src="./Задача - H - Codeforces_files/MathJax.js">
+    </script>
+    <!-- /MathJax -->
+
+    <script type="text/javascript" src="./Задача - H - Codeforces_files/prettify.js"></script>
+    <script type="text/javascript" src="./Задача - H - Codeforces_files/moment-with-locales.min.js"></script>
+    <script type="text/javascript" src="./Задача - H - Codeforces_files/pushstream.js"></script>
+    <script type="text/javascript" src="./Задача - H - Codeforces_files/jquery.easing.min.js"></script>
+    <script type="text/javascript" src="./Задача - H - Codeforces_files/jquery.lavalamp.min.js"></script>
+    <script type="text/javascript" src="./Задача - H - Codeforces_files/jquery.jgrowl.js"></script>
+    <script type="text/javascript" src="./Задача - H - Codeforces_files/jquery.swipe.js"></script>
+    <script type="text/javascript" src="./Задача - H - Codeforces_files/jquery.hotkeys.js"></script>
+    <script type="text/javascript" src="./Задача - H - Codeforces_files/facebox.js"></script>
+    <script type="text/javascript" src="./Задача - H - Codeforces_files/jquery.wysiwyg.js"></script>
+    <script type="text/javascript" src="./Задача - H - Codeforces_files/wysiwyg.colorpicker.js"></script>
+    <script type="text/javascript" src="./Задача - H - Codeforces_files/wysiwyg.table.js"></script>
+    <script type="text/javascript" src="./Задача - H - Codeforces_files/wysiwyg.image.js"></script>
+    <script type="text/javascript" src="./Задача - H - Codeforces_files/wysiwyg.link.js"></script>
+    <script type="text/javascript" src="./Задача - H - Codeforces_files/jquery.autocomplete.js"></script>
+    <script type="text/javascript" src="./Задача - H - Codeforces_files/ua-parser.js"></script>
+    <script type="text/javascript" src="./Задача - H - Codeforces_files/jquery.datepick.js"></script>
+    <script type="text/javascript" src="./Задача - H - Codeforces_files/jquery.ie6blocker.js"></script>
+    <script type="text/javascript" src="./Задача - H - Codeforces_files/jquery.colorbox-min.js"></script>
+    <script type="text/javascript" src="./Задача - H - Codeforces_files/jquery.ba-bbq.js"></script>
+    <script type="text/javascript" src="./Задача - H - Codeforces_files/jquery.drafts.js"></script>
+    <script type="text/javascript" src="./Задача - H - Codeforces_files/clipboard.min.js"></script>
+    <script type="text/javascript" src="./Задача - H - Codeforces_files/autosize.min.js"></script>
+    <script type="text/javascript" src="./Задача - H - Codeforces_files/sjcl.js"></script>
+    <script type="text/javascript" src="./Задача - H - Codeforces_files/codeforces-options.js"></script>
+    <script type="text/javascript" src="./Задача - H - Codeforces_files/codeforces.js"></script>
+    <script type="text/javascript" src="./Задача - H - Codeforces_files/EventCatcher.js"></script>
+    <script type="text/javascript" src="./Задача - H - Codeforces_files/preparedVerdictFormats-ru.js"></script>
+    <!--/CombineResourcesFilter-->
+
+    <link rel="stylesheet" href="./Задача - H - Codeforces_files/style(1).css" type="text/css" charset="utf-8">
+    <link rel="stylesheet" href="./Задача - H - Codeforces_files/style(2).css" type="text/css" charset="utf-8">
+
+
+    <script type="text/javascript" src="./Задача - H - Codeforces_files/jquery.markitup.js"></script>
+    <script type="text/javascript" src="./Задача - H - Codeforces_files/set.js"></script>
+
+    <!--[if IE]>
+    <style>
+        #sidebar {
+            padding-left: 1em;
+            margin: 1em 1em 1em 0;
+        }
+    </style>
+    <![endif]-->
+
+
+
+
+<style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 2px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 2px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: 1em}
+.MathJax_MenuRadioCheck.RTL {right: 1em; left: auto}
+.MathJax_MenuLabel {padding: 2px 2em 4px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #CCCCCC; margin: 4px 1px 0px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: Highlight; color: HighlightText}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888; display: contents}
+#MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">.MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover, .MJXp-munder {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > *, .MJXp-munder > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style><style type="text/css">.MathJax_Display {text-align: center; margin: 1em 0em; position: relative; display: block!important; text-indent: 0; max-width: none; max-height: none; min-width: 0; min-height: 0; width: 100%}
+.MathJax .merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MathJax .MJX-monospace {font-family: monospace}
+.MathJax .MJX-sans-serif {font-family: sans-serif}
+#MathJax_Tooltip {background-color: InfoBackground; color: InfoText; border: 1px solid black; box-shadow: 2px 2px 5px #AAAAAA; -webkit-box-shadow: 2px 2px 5px #AAAAAA; -moz-box-shadow: 2px 2px 5px #AAAAAA; -khtml-box-shadow: 2px 2px 5px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true'); padding: 3px 4px; z-index: 401; position: absolute; left: 0; top: 0; width: auto; height: auto; display: none}
+.MathJax {display: inline; font-style: normal; font-weight: normal; line-height: normal; font-size: 100%; font-size-adjust: none; text-indent: 0; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0; min-height: 0; border: 0; padding: 0; margin: 0}
+.MathJax:focus, body :focus .MathJax {display: inline-table}
+.MathJax.MathJax_FullWidth {text-align: center; display: table-cell!important; width: 10000em!important}
+.MathJax img, .MathJax nobr, .MathJax a {border: 0; padding: 0; margin: 0; max-width: none; max-height: none; min-width: 0; min-height: 0; vertical-align: 0; line-height: normal; text-decoration: none}
+img.MathJax_strut {border: 0!important; padding: 0!important; margin: 0!important; vertical-align: 0!important}
+.MathJax span {display: inline; position: static; border: 0; padding: 0; margin: 0; vertical-align: 0; line-height: normal; text-decoration: none; box-sizing: content-box}
+.MathJax nobr {white-space: nowrap!important}
+.MathJax img {display: inline!important; float: none!important}
+.MathJax * {transition: none; -webkit-transition: none; -moz-transition: none; -ms-transition: none; -o-transition: none}
+.MathJax_Processing {visibility: hidden; position: fixed; width: 0; height: 0; overflow: hidden}
+.MathJax_Processed {display: none!important}
+.MathJax_test {font-style: normal; font-weight: normal; font-size: 100%; font-size-adjust: none; text-indent: 0; text-transform: none; letter-spacing: normal; word-spacing: normal; overflow: hidden; height: 1px}
+.MathJax_test.mjx-test-display {display: table!important}
+.MathJax_test.mjx-test-inline {display: inline!important; margin-right: -1px}
+.MathJax_test.mjx-test-default {display: block!important; clear: both}
+.MathJax_ex_box {display: inline-block!important; position: absolute; overflow: hidden; min-height: 0; max-height: none; padding: 0; border: 0; margin: 0; width: 1px; height: 60ex}
+.MathJax_em_box {display: inline-block!important; position: absolute; overflow: hidden; min-height: 0; max-height: none; padding: 0; border: 0; margin: 0; width: 1px; height: 60em}
+.mjx-test-inline .MathJax_left_box {display: inline-block; width: 0; float: left}
+.mjx-test-inline .MathJax_right_box {display: inline-block; width: 0; float: right}
+.mjx-test-display .MathJax_right_box {display: table-cell!important; width: 10000em!important; min-width: 0; max-width: none; padding: 0; border: 0; margin: 0}
+.MathJax .MathJax_HitBox {cursor: text; background: white; opacity: 0; filter: alpha(opacity=0)}
+.MathJax .MathJax_HitBox * {filter: none; opacity: 1; background: transparent}
+#MathJax_Tooltip * {filter: none; opacity: 1; background: transparent}
+@font-face {font-family: MathJax_Main; src: url('https://routejunior.contest.codeforces.com/static/mathjax/fonts/HTML-CSS/TeX/woff/MathJax_Main-Regular.woff?V=2.7.9') format('woff'), url('https://routejunior.contest.codeforces.com/static/mathjax/fonts/HTML-CSS/TeX/otf/MathJax_Main-Regular.otf?V=2.7.9') format('opentype')}
+@font-face {font-family: MathJax_Main-bold; src: url('https://routejunior.contest.codeforces.com/static/mathjax/fonts/HTML-CSS/TeX/woff/MathJax_Main-Bold.woff?V=2.7.9') format('woff'), url('https://routejunior.contest.codeforces.com/static/mathjax/fonts/HTML-CSS/TeX/otf/MathJax_Main-Bold.otf?V=2.7.9') format('opentype')}
+@font-face {font-family: MathJax_Main-italic; src: url('https://routejunior.contest.codeforces.com/static/mathjax/fonts/HTML-CSS/TeX/woff/MathJax_Main-Italic.woff?V=2.7.9') format('woff'), url('https://routejunior.contest.codeforces.com/static/mathjax/fonts/HTML-CSS/TeX/otf/MathJax_Main-Italic.otf?V=2.7.9') format('opentype')}
+@font-face {font-family: MathJax_Math-italic; src: url('https://routejunior.contest.codeforces.com/static/mathjax/fonts/HTML-CSS/TeX/woff/MathJax_Math-Italic.woff?V=2.7.9') format('woff'), url('https://routejunior.contest.codeforces.com/static/mathjax/fonts/HTML-CSS/TeX/otf/MathJax_Math-Italic.otf?V=2.7.9') format('opentype')}
+@font-face {font-family: MathJax_Caligraphic; src: url('https://routejunior.contest.codeforces.com/static/mathjax/fonts/HTML-CSS/TeX/woff/MathJax_Caligraphic-Regular.woff?V=2.7.9') format('woff'), url('https://routejunior.contest.codeforces.com/static/mathjax/fonts/HTML-CSS/TeX/otf/MathJax_Caligraphic-Regular.otf?V=2.7.9') format('opentype')}
+@font-face {font-family: MathJax_Size1; src: url('https://routejunior.contest.codeforces.com/static/mathjax/fonts/HTML-CSS/TeX/woff/MathJax_Size1-Regular.woff?V=2.7.9') format('woff'), url('https://routejunior.contest.codeforces.com/static/mathjax/fonts/HTML-CSS/TeX/otf/MathJax_Size1-Regular.otf?V=2.7.9') format('opentype')}
+@font-face {font-family: MathJax_Size2; src: url('https://routejunior.contest.codeforces.com/static/mathjax/fonts/HTML-CSS/TeX/woff/MathJax_Size2-Regular.woff?V=2.7.9') format('woff'), url('https://routejunior.contest.codeforces.com/static/mathjax/fonts/HTML-CSS/TeX/otf/MathJax_Size2-Regular.otf?V=2.7.9') format('opentype')}
+@font-face {font-family: MathJax_Size3; src: url('https://routejunior.contest.codeforces.com/static/mathjax/fonts/HTML-CSS/TeX/woff/MathJax_Size3-Regular.woff?V=2.7.9') format('woff'), url('https://routejunior.contest.codeforces.com/static/mathjax/fonts/HTML-CSS/TeX/otf/MathJax_Size3-Regular.otf?V=2.7.9') format('opentype')}
+@font-face {font-family: MathJax_Size4; src: url('https://routejunior.contest.codeforces.com/static/mathjax/fonts/HTML-CSS/TeX/woff/MathJax_Size4-Regular.woff?V=2.7.9') format('woff'), url('https://routejunior.contest.codeforces.com/static/mathjax/fonts/HTML-CSS/TeX/otf/MathJax_Size4-Regular.otf?V=2.7.9') format('opentype')}
+.MathJax .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style></head>
+<body class=" "><div style="visibility: hidden; overflow: hidden; position: absolute; top: 0px; height: 1px; width: auto; padding: 0px; border: 0px; margin: 0px; text-align: left; text-indent: 0px; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal;"><div id="MathJax_Hidden"></div></div><div id="MathJax_Message" style="display: none;"></div><span style="display:none;" class="csrf-token" data-csrf="5ed57794c16e0b5dd523d51cc308dff1">&nbsp;</span>
+
+<!-- .notificationTextCleaner used in Codeforces.showAnnouncements() -->
+<div class="notificationTextCleaner" style="font-size: 0"></div>
+<div class="button-up" style="display: none; opacity: 0.7; width: 30px; height: 100%; position: fixed; left: 0px; top: 0px; cursor: pointer; text-align: center; line-height: 30px; color: rgb(211, 219, 228); font-weight: bold; font-size: 20px;"><i class="icon-circle-arrow-up"></i></div>
+<div class="verdictPrototypeDiv" style="display: none;"></div>
+
+<!-- Codeforces JavaScripts. -->
+<script type="text/javascript">
+    String.prototype.hashCode = function() {
+        var hash = 0, i, chr;
+        if (this.length === 0) return hash;
+        for (i = 0; i < this.length; i++) {
+            chr   = this.charCodeAt(i);
+            hash  = ((hash << 5) - hash) + chr;
+            hash |= 0; // Convert to 32bit integer
+        }
+        return hash;
+    };
+
+    var queryMobile = Codeforces.queryString.mobile;
+    if (queryMobile === "true" || queryMobile === "false") {
+        Codeforces.putToStorage("useMobile", queryMobile === "true");
+    } else {
+        var useMobile = Codeforces.getFromStorage("useMobile");
+        if (useMobile === true || useMobile === false) {
+            if (useMobile != false) {
+                Codeforces.redirect(Codeforces.updateUrlParameter(document.location.href, "mobile", useMobile));
+            }
+        }
+    }
+</script>
+
+
+
+
+
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+    (function () {
+        jQuery.expr[':'].containsCI = function(elem, index, match) {
+            return !match || !match.length || match.length < 4 || !match[3] || (
+                    elem.textContent || elem.innerText || jQuery(elem).text() || ''
+            ).toLowerCase().indexOf(match[3].toLowerCase()) >= 0;
+        }
+    }(jQuery));
+
+    $.ajaxPrefilter(function(options, originalOptions, xhr) {
+        var csrf = Codeforces.getCsrfToken();
+
+        if (csrf) {
+            var data = originalOptions.data;
+            if (originalOptions.data !== undefined) {
+                if (Object.prototype.toString.call(originalOptions.data) === '[object String]') {
+                    data = $.deparam(originalOptions.data);
+                }
+            } else {
+                data = {};
+            }
+            options.data = $.param($.extend(data, { csrf_token: csrf }));
+        }
+    });
+
+    window.getCodeforcesServerTime = function(callback) {
+        $.post("/data/time", {}, callback, "json");
+    }
+
+    window.updateTypography = function () {
+        $("div.ttypography code").addClass("tt");
+        $("div.ttypography pre>code").addClass("prettyprint").removeClass("tt");
+        $("div.ttypography table").addClass("bordertable");
+        prettyPrint();
+    }
+
+    $.ajaxSetup({ scriptCharset: "utf-8" ,contentType: "application/x-www-form-urlencoded; charset=UTF-8", headers: {
+        'X-Csrf-Token': Codeforces.getCsrfToken()
+    }});
+
+    window.updateTypography();
+
+    Codeforces.signForms();
+
+    setTimeout(function() {
+        $(".second-level-menu-list").lavaLamp({
+            fx: "backout",
+            speed: 700
+        });
+    }, 100);
+
+
+    Codeforces.countdown();
+    $("a[rel='photobox']").colorbox();
+
+        var count = 0;
+
+        function getDelay() {
+            var delay = 0;
+            var last = Codeforces.getFromStorage("LastOnlineTimeUpdaterMillis", 0);
+            if (last && last != null) {
+                var period = count < 20 ? 360 * 1000 : 600 * 1000;
+                delay = period - (new Date().getTime() - last);
+                if (delay < 0)
+                    delay = 0;
+            }
+            return delay;
+        }
+
+        window.setInterval(function () {
+            if (getDelay() <= 0 && count < 120) {
+                ++count;
+                Codeforces.ping("/data/update-online");
+            }
+        }, 5000);
+
+        var handle = "g19916=olive_elephant_f3bc";
+        $("a.rated-user:contains(" + handle + "), span.participant:contains(" + handle + ")").each(function () {
+            if ($(this).text() == handle) {
+                var td = $(this).parent();
+                var tr = $(this).parent().parent();
+                if (td.is("td") && tr.is("tr") && !tr.hasClass("disable-highlight-self")) {
+                    info(handle);
+                    tr.addClass("highlighted-row");
+                }
+            }
+        });
+
+    function showAnnouncements(json) {
+        //info("j=" + JSON.stringify(json));
+
+        if (json.t != "a") {
+            return;
+        }
+
+        setTimeout(function() {
+            Codeforces.showAnnouncements(json.d, "ru");
+        }, Math.random() * 500);
+    }
+
+    function showEventCatcherUserMessage(json) {
+        if (json.t == "s") {
+            var points = json.d[5];
+            var passedTestCount = json.d[7];
+            var judgedTestCount = json.d[8];
+            var verdict = preparedVerdictFormats[json.d[12]];
+            var verdictPrototypeDiv = $(".verdictPrototypeDiv");
+            verdictPrototypeDiv.html(verdict);
+            if (judgedTestCount != null && judgedTestCount != undefined) {
+                verdictPrototypeDiv.find(".verdict-format-judged").text(judgedTestCount);
+            }
+            if (passedTestCount != null && passedTestCount != undefined) {
+                verdictPrototypeDiv.find(".verdict-format-passed").text(passedTestCount);
+            }
+            if (points != null && points != undefined) {
+                verdictPrototypeDiv.find(".verdict-format-points").text(points);
+            }
+            Codeforces.showMessage(verdictPrototypeDiv.text());
+        }
+    }
+
+    $(".clickable-title").each(function() {
+        var title = $(this).attr("data-title");
+        if (title) {
+            var tmp = document.createElement("DIV");
+            tmp.innerHTML = title;
+            $(this).attr("title", tmp.textContent || tmp.innerText || "");
+        }
+    });
+
+    $(".clickable-title").click(function() {
+        var title = $(this).attr("data-title");
+        if (title) {
+            Codeforces.alert(title);
+        } else {
+            Codeforces.alert($(this).attr("title"));
+        }
+    }).css("position", "relative").css("bottom", "3px");
+
+        Codeforces.showDelayedMessage();
+
+    Codeforces.reformatTimes();
+
+    //Codeforces.initializePubSub();
+    if (window.codeforcesOptions.subscribeServerUrl) {
+        window.eventCatcher = new EventCatcher(
+            window.codeforcesOptions.subscribeServerUrl,
+            [
+                Codeforces.getGlobalChannel(),
+                Codeforces.getUserChannel(),
+                Codeforces.getUserShowMessageChannel(),
+                Codeforces.getContestChannel(),
+                Codeforces.getParticipantChannel(),
+                Codeforces.getTalkChannel()
+            ]
+        );
+
+        if (Codeforces.getParticipantChannel()) {
+            window.eventCatcher.subscribe(Codeforces.getParticipantChannel(), function(json) {
+                showAnnouncements(json);
+            });
+        }
+
+        if (Codeforces.getContestChannel()) {
+            window.eventCatcher.subscribe(Codeforces.getContestChannel(), function(json) {
+                showAnnouncements(json);
+            });
+        }
+
+        if (Codeforces.getGlobalChannel()) {
+            window.eventCatcher.subscribe(Codeforces.getGlobalChannel(), function(json) {
+                showAnnouncements(json);
+            });
+        }
+
+        if (Codeforces.getUserChannel()) {
+            window.eventCatcher.subscribe(Codeforces.getUserChannel(), function(json) {
+                showAnnouncements(json);
+            });
+        }
+
+        if (Codeforces.getUserShowMessageChannel()) {
+            window.eventCatcher.subscribe(Codeforces.getUserShowMessageChannel(), function(json) {
+                showEventCatcherUserMessage(json);
+            });
+        }
+    }
+
+    Codeforces.setupContestTimes("/group/H3VxISVcTk/data/contests");
+    Codeforces.setupSpoilers();
+    Codeforces.setupTutorials("/data/problemTutorial");
+        });
+    </script>
+
+
+
+<div id="body">
+        <script type="text/javascript">
+            $(function() {
+                window._ftaa = "307ch71qcfhrx8wt4y";
+            })
+        </script>
+
+        <script type="text/javascript">
+            $(function() {
+                window._bfaa = "45e9dbb9a8b7c517f119a215ff35eb06";
+            });
+        </script>
+            <script type="application/javascript">
+                window.setTimeout(function () {
+                    var url = location.href;
+                    var hashCode32 = Math.abs(url.hashCode()).toString();
+                    var hashCode = "p" + hashCode32 + Math.abs((hashCode32 + url).hashCode());
+                    var pvs = Codeforces.getFromStorage("pvs" + hashCode);
+                    if (!pvs) {
+                        $.post("/data/apv", {
+                            ftaa: window._ftaa,
+                            bfaa: window._bfaa,
+                            url: url
+                        }, function (json) {
+                            if (json["success"] === "true") {
+                                Codeforces.putToStorage("pvs" + hashCode, true);
+                            }
+                        }, "json");
+                    }
+                }, 5000);
+            </script>
+        
+
+<div id="header" style="position: relative;">
+    <div style="float:left; max-height: 60px;">
+            <div style="bottom: 4.0px;"><img src="./Задача - H - Codeforces_files/top8.png" style="max-width: 100.0%;max-height: 100.0%;"></div>
+    </div>
+    <div class="lang-chooser">
+
+        <div style="margin-top: 0.5em;">
+                        olive_elephant_f3bc
+                     | 
+                        <a href="https://routejunior.contest.codeforces.com/80acfa15018f75a09ce6332c52261025/logout">Выйти</a>
+                    
+        </div>
+
+
+
+    </div>
+    <br style="clear: both;">
+</div>
+        
+
+    <div class="roundbox menu-box" style="">
+            <div class="roundbox-lt">&nbsp;</div>
+            <div class="roundbox-rt">&nbsp;</div>
+            <div class="roundbox-lb">&nbsp;</div>
+            <div class="roundbox-rb">&nbsp;</div>
+    <div class="menu-list-container">
+    <ul class="menu-list main-menu-list">
+                <li class=""><a href="https://routejunior.contest.codeforces.com/group/H3VxISVcTk/contests">Соревнования</a></li>
+    </ul>
+    <br style="clear: both;">
+</div>
+
+    </div>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("input.search").focus(function () {
+                if ($(this).attr("data-isPlaceholder") === "true") {
+                    $(this).val("");
+                    $(this).removeAttr("data-isPlaceholder");
+                }
+            });
+        });
+    </script>
+            <br style="height: 3em; clear: both;">
+
+        <div style="position: relative;">
+                        <div id="sidebar">
+
+    <div class="roundbox sidebox" style="">
+            <div class="roundbox-lt">&nbsp;</div>
+            <div class="roundbox-rt">&nbsp;</div>
+        <table class="rtable ">
+            <tbody>
+                <tr>
+                            <th class="left" style="width:100%;"><a style="color: black" href="https://routejunior.contest.codeforces.com/group/H3VxISVcTk">Route 256 [Junior]</a></th>
+                </tr>
+                    <tr>
+                                <td class="left bottom" colspan="1"><span class="contest-state-regular countdown" cdid="i1">Участник</span></td>
+                    </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="roundbox sidebox" style="">
+            <div class="roundbox-lt">&nbsp;</div>
+            <div class="roundbox-rt">&nbsp;</div>
+        <div class="caption titled">→ О группе
+            <div class="top-links">
+            </div>
+        </div>
+        <div style="text-align: center; margin: 1em">
+                <img style="max-width: 250px" src="data:image/png;base64,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" alt="Логотип">
+        </div>
+    </div>
+
+    <div class="roundbox sidebox" style="">
+            <div class="roundbox-lt">&nbsp;</div>
+            <div class="roundbox-rt">&nbsp;</div>
+        <table class="rtable ">
+            <tbody>
+                <tr>
+                            <th class="left" style="width:100%;"><a style="color: black" href="https://routejunior.contest.codeforces.com/group/H3VxISVcTk/contest/425602">Контест - Go (Juniors)</a></th>
+                </tr>
+                    <tr>
+                                <td class="left  dark" colspan="1"><span class="contest-state-phase">Закончено</span></td>
+                    </tr>
+                    <tr>
+                                <td class="left bottom" colspan="1"><span class="contest-state-regular">Участник</span></td>
+                    </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="roundbox sidebox" style="">
+            <div class="roundbox-lt">&nbsp;</div>
+            <div class="roundbox-rt">&nbsp;</div>
+        <div class="caption titled">→ Пересчёт ограничений по времени
+            <div class="top-links">
+            </div>
+        </div>
+    <div style="margin:1em;">
+        <div style="font-size: 1.1rem;">
+            <p style="padding-bottom: 1em;">
+                Это соревнование использует политику пересчёта ограничений по времени по языкам программирования.
+                Система автоматически увеличивает ограничения по времени для некоторых языков в соответствии с множителями.
+                Независимо от множителя языка, ограничение по времени не может превысить 30 секунд.
+                Прочтите детали <a href="https://routejunior.contest.codeforces.com/group/H3VxISVcTk/contest/425602/extraTimeFactors" target="_blank">по ссылке</a>.
+            </p>
+        </div>
+    </div>
+    </div>
+
+    <div class="roundbox sidebox" style="">
+            <div class="roundbox-lt">&nbsp;</div>
+            <div class="roundbox-rt">&nbsp;</div>
+        <div class="caption titled">→ Языки
+            <div class="top-links">
+            </div>
+        </div>
+<div style="margin:1em;">
+    <div style="font-size:0.8em;">Следующие языки могут быть использованы как дополнительные для решения задач соревнования</div><div style="font-weight:bold;margin:0.5em 0;font-size:0.8em;text-align:center;">Контест - Go (Juniors):</div>
+<ul class="list" style="font-size:0.8em;margin-top:0.5em;">
+        <li>PostgreSQL 15.1</li>
+</ul>
+</div>
+    </div>
+
+
+
+    <div class="roundbox sidebox" style="">
+            <div class="roundbox-lt">&nbsp;</div>
+            <div class="roundbox-rt">&nbsp;</div>
+        <div class="caption titled">→ Набранные баллы
+            <div class="top-links">
+            </div>
+        </div>
+        <table class="rtable smaller">
+            <tbody>
+                <tr>
+                            <th class="left " style="width:2.5em;"></th>
+                            <th class=" ">Баллы</th>
+                </tr>
+                    <tr>
+                                <td class="left  "><b>A</b></td>
+                                <td class=" ">5</td>
+                    </tr>
+                    <tr>
+                                <td class="left  dark "><b>B</b></td>
+                                <td class=" dark ">10</td>
+                    </tr>
+                    <tr>
+                                <td class="left  "><b>C</b></td>
+                                <td class=" ">15</td>
+                    </tr>
+                    <tr>
+                                <td class="left  dark "><b>D</b></td>
+                                <td class=" dark ">20</td>
+                    </tr>
+                    <tr>
+                                <td class="left  "><b>E</b></td>
+                                <td class=" "></td>
+                    </tr>
+                    <tr>
+                                <td class="left  dark "><b>F</b></td>
+                                <td class=" dark "></td>
+                    </tr>
+                    <tr>
+                                <td class="left  "><b>G</b></td>
+                                <td class=" "></td>
+                    </tr>
+                    <tr>
+                                <td class="left  dark "><b>H</b></td>
+                                <td class=" dark "></td>
+                    </tr>
+                    <tr>
+                                <td class="left  "><b>I</b></td>
+                                <td class=" "></td>
+                    </tr>
+                    <tr>
+                                <td class="left  dark "><b>S1</b></td>
+                                <td class=" dark "></td>
+                    </tr>
+                    <tr>
+                                <td class="left  "><b>S2</b></td>
+                                <td class=" "></td>
+                    </tr>
+                    <tr>
+                                <td class="left  dark "><b>S3</b></td>
+                                <td class=" dark "></td>
+                    </tr>
+                    <tr>
+                                <td class="left bottom "><b>Всего</b></td>
+                                <td class="bottom "><b>50</b></td>
+                    </tr>
+            </tbody>
+        </table>
+    </div>
+
+<style type="text/css">
+#new-resource-form tr td {
+padding-top: 0.5em;
+}
+#new-resource-form input:not([type="submit"]) {
+font-size: 0.8em;
+}
+#new-resource-form select {
+font-size: 0.8em;
+}
+.new-resource-error {
+font-size: 0.8em;
+}
+.resource-locale {
+color: #666;
+font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
+}
+</style>
+<div class="roundbox sidebox sidebar-menu" style="">
+<div class="roundbox-lt">&nbsp;</div>
+<div class="roundbox-rt">&nbsp;</div>
+<div class="caption titled">→ Материалы соревнования
+<div class="top-links">
+</div>
+</div>
+<ul>
+<li><a href="https://routejunior.contest.codeforces.com/group/H3VxISVcTk/contest/425602/problem-materials/problem-b-tests.zip">problem-b-tests.zip</a></li>
+<li><a href="https://routejunior.contest.codeforces.com/group/H3VxISVcTk/contest/425602/problem-materials/problem-c-tests.zip">problem-c-tests.zip</a></li>
+<li><a href="https://routejunior.contest.codeforces.com/group/H3VxISVcTk/contest/425602/problem-materials/problem-d-tests.zip">problem-d-tests.zip</a></li>
+<li><a href="https://routejunior.contest.codeforces.com/group/H3VxISVcTk/contest/425602/problem-materials/problem-e-tests.zip">problem-e-tests.zip</a></li>
+<li><a href="https://routejunior.contest.codeforces.com/group/H3VxISVcTk/contest/425602/problem-materials/problem-f-tests.zip">problem-f-tests.zip</a></li>
+<li><a href="https://routejunior.contest.codeforces.com/group/H3VxISVcTk/contest/425602/problem-materials/problem-g-tests.zip">problem-g-tests.zip</a></li>
+<li><a href="https://routejunior.contest.codeforces.com/group/H3VxISVcTk/contest/425602/problem-materials/problem-h-tests.zip">problem-h-tests.zip</a></li>
+<li><a href="https://routejunior.contest.codeforces.com/group/H3VxISVcTk/contest/425602/problem-materials/problem-i-tests.zip">problem-i-tests.zip</a></li>
+<li><a href="https://routejunior.contest.codeforces.com/group/H3VxISVcTk/contest/425602/problem-materials/problem-s1-tests.zip">problem-s1-tests.zip</a></li>
+<li><a href="https://routejunior.contest.codeforces.com/group/H3VxISVcTk/contest/425602/problem-materials/problem-s2-tests.zip">problem-s2-tests.zip</a></li>
+<li><a href="https://routejunior.contest.codeforces.com/group/H3VxISVcTk/contest/425602/problem-materials/problem-s3-tests.zip">problem-s3-tests.zip</a></li>
+</ul>
+</div></div>
+                        <div id="pageContent" class="content-with-sidebar">
+                    <div class="second-level-menu">
+<ul class="second-level-menu-list"><li class="backLava" style="position: absolute; display: block; margin: 0px; padding: 0px; left: 0px; top: 0px; width: 66px; height: 20px;"><div class="leftLava"></div><div class="bottomLava"></div><div class="cornerLava"></div></li>
+        <li class="current selectedLava"><a href="https://routejunior.contest.codeforces.com/group/H3VxISVcTk/contest/425602">Задачи</a></li>
+        <li><a href="https://routejunior.contest.codeforces.com/group/H3VxISVcTk/contest/425602/submit">Отослать</a></li>
+        <li><a href="https://routejunior.contest.codeforces.com/group/H3VxISVcTk/contest/425602/my">Мои посылки</a></li>
+        <li><a href="https://routejunior.contest.codeforces.com/group/H3VxISVcTk/contest/425602/status">Статус</a></li>
+        <li><a href="https://routejunior.contest.codeforces.com/group/H3VxISVcTk/contest/425602/standings/groupmates/true">Положение</a></li>
+        <li><a href="https://routejunior.contest.codeforces.com/group/H3VxISVcTk/contest/425602/customtest">Запуск</a></li>
+</ul>
+</div>
+<style>
+        #facebox .content:has(.diff-popup) {
+            width: 90vw;
+            max-width: 120rem !important;
+        }
+
+        .testCaseMarker {
+            position: absolute;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+
+        .diff-popup {
+            width: 90vw;
+            max-width: 120rem !important;
+            display: none;
+            overflow: auto;
+        }
+
+        .input-output-copier {
+            font-size: 1.2rem;
+            float: right;
+            color: #888 !important;
+            cursor: pointer;
+            border: 1px solid rgb(185, 185, 185);
+            padding: 3px;
+            margin: 1px;
+            line-height: 1.1rem;
+            text-transform: none;
+        }
+
+        .input-output-copier:hover {
+            background-color: #def;
+        }
+
+        .test-explanation textarea {
+            width: 100%;
+            height: 1.5em;
+        }
+
+        .pending-submission-message {
+            color: darkorange !important;
+        }
+    </style>
+    <script>
+        const OPENING_SPACE = String.fromCharCode(1001);
+        const CLOSING_SPACE = String.fromCharCode(1002);
+
+        const nodeToText = function (node, pre) {
+            let result = [];
+
+            if (node.tagName === "SCRIPT" || node.tagName === "math"
+                || (node.classList && node.classList.contains("input-output-copier")))
+                return [];
+
+            if (node.tagName === "NOBR") {
+                result.push(OPENING_SPACE);
+            }
+
+            if (node.nodeType === Node.TEXT_NODE) {
+                let s = node.textContent;
+                if (!pre) {
+                    s = s.replace(/\s+/g, " ");
+                }
+                if (s.length > 0) {
+                    result.push(s);
+                }
+            }
+
+            if (pre && node.tagName === "BR") {
+                result.push("\n");
+            }
+
+            node.childNodes.forEach(function (child) {
+                result.push(nodeToText(child, node.tagName === "PRE").join(""));
+            });
+
+            if (node.tagName === "DIV"
+                || node.tagName === "P"
+                || node.tagName === "PRE"
+                || node.tagName === "UL"
+                || node.tagName === "LI"
+            ) {
+                result.push("\n");
+            }
+
+            if (node.tagName === "NOBR") {
+                result.push(CLOSING_SPACE);
+            }
+
+            return result;
+        }
+
+        const isSpecial = function (c) {
+            return c === ',' || c === '.' || c === ';' || c === ')' || c === ' ';
+        }
+
+        const convertStatementToText = function(statmentNode) {
+            const text = nodeToText(statmentNode, false).join("").replace(/ +/g, " ").replace(/\n\n+/g, "\n\n");
+            let result = [];
+            for (let i = 0; i < text.length; i++) {
+                const c = text.charAt(i);
+                if (c === OPENING_SPACE) {
+                    if (!((i > 0 && text.charAt(i - 1) === '(') || (result.length > 0 && result[result.length - 1] === ' '))) {
+                        result.push('+');
+                    }
+                } else if (c === CLOSING_SPACE) {
+                    if (!(i + 1 < text.length && isSpecial(text.charAt(i + 1)))) {
+                        result.push('-');
+                    }
+                } else {
+                    result.push(c);
+                }
+            }
+            return result.join("").split("\n").map(value => value.trim()).join("\n");
+        };
+    </script>
+    <div class="diff-popup">
+    </div>
+
+<div class="problemindexholder" problemindex="H" data-uuid="ps_0cfdda10c0fc3a71a314b3881f66737102e183a1">
+    <div style="display: none; margin:1em 0;text-align: center; position: relative;" class="alert alert-info diff-notifier">
+        <div>Условие задачи было недавно изменено. <a class="view-changes" href="https://routejunior.contest.codeforces.com/group/H3VxISVcTk/contest/425602/problem/H#">Просмотреть изменения.</a></div>
+        <span class="diff-notifier-close" style="position: absolute; top: 0.2em; right: 0.3em; cursor: pointer; font-size: 1.4em;">×</span>
+    </div>
+        <div class="ttypography"><div class="problem-statement"><div class="header"><div class="title">H. Block Jigsaw Puzzle (30 баллов)</div><div class="time-limit"><div class="property-title">ограничение по времени на тест</div>10 секунд<i class="icon-question-sign clickable-title" style="font-size: 0.8em; font-style: normal; position: relative; bottom: 3px;" title="Это соревнование использует политику пересчёта ограничений по времени по языкам программирования.
+Система автоматически увеличивает ограничения по времени для некоторых языков в соответствии с множителями.
+Независимо от множителя языка, ограничение по времени не может превысить 30 секунд.
+Прочтите детали по ссылке ниже списка задач."></i></div><div class="memory-limit"><div class="property-title">ограничение по памяти на тест</div>512 мегабайт</div><div class="input-file"><div class="property-title">ввод</div>стандартный ввод</div><div class="output-file"><div class="property-title">вывод</div>стандартный вывод</div></div><div><p>Слышали о Block Jigsaw Puzzle? Сейчас расскажем!</p><p>Игра происходит на поле <span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-1-Frame" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mn&gt;8&lt;/mn&gt;&lt;mo&gt;&amp;#x00D7;&lt;/mo&gt;&lt;mn&gt;8&lt;/mn&gt;&lt;/math&gt;" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-1" style="width: 2.741em; display: inline-block;"><span style="display: inline-block; position: relative; width: 2.265em; height: 0px; font-size: 120%;"><span style="position: absolute; clip: rect(1.372em, 1002.21em, 2.384em, -999.997em); top: -2.199em; left: 0em;"><span class="mrow" id="MathJax-Span-2"><span class="mn" id="MathJax-Span-3" style="font-family: MathJax_Main;">8</span><span class="mo" id="MathJax-Span-4" style="font-family: MathJax_Main; padding-left: 0.241em;">×</span><span class="mn" id="MathJax-Span-5" style="font-family: MathJax_Main; padding-left: 0.241em;">8</span></span><span style="display: inline-block; width: 0px; height: 2.205em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.068em; border-left: 0px solid; width: 0px; height: 1.004em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>8</mn><mo>×</mo><mn>8</mn></math></span></span><script type="math/tex" id="MathJax-Element-1">8 \times 8</script>. Каждая клетка поля либо свободна, либо занята блоком. Например, ниже на картинке изображено одно из возможных текущих состояний поля.</p><center> <img class="tex-graphics" src="./Задача - H - Codeforces_files/904c81083dd8721160c550d792e7ce6d5f58d563.png" style="max-width: 100.0%;max-height: 100.0%;"> </center><p>Вам поступают фигуры, которые вы должны укладывать на поле. Вращать фигуры вы не можете. Когда вы кладёте фигуру на поле, все клетки, соответствующие этой фигуре, должны быть свободны. Вы можете выбрать любой из корректных способов положить фигуру.</p><p>Например, допустим, вы хотите положить следующую фигуру на поле:</p><center> <img class="tex-graphics" src="./Задача - H - Codeforces_files/85014348c0427035c2c6f87f4f1e56dce936a1e1.png" style="max-width: 100.0%;max-height: 100.0%;"> </center><p>Есть всего один корректный способ положить её:</p><center> <img class="tex-graphics" src="./Задача - H - Codeforces_files/17e96495b0ec06f70880d77acc71d91d6218a5f8.png" style="max-width: 100.0%;max-height: 100.0%;"> </center><p>Как только фигура оказалась на поле, все полностью заполненные блоками строки и столбцы поля очищаются. Это действие происходит мгновенно, оставшиеся заполненные блоки остаются неподвижными.</p><p>В рассматриваемом примере очистятся одна строка и один столбец. После этого поле примет следующий вид:</p><center> <img class="tex-graphics" src="./Задача - H - Codeforces_files/b779f21162c96b628bc680a0861b9be603990622.png" style="max-width: 100.0%;max-height: 100.0%;"> </center><p>Возможные фигуры для укладывания могут выглядеть следующим образом:</p><center> <img class="tex-graphics" src="./Задача - H - Codeforces_files/5f4ac85d72e04369ed1e47788cc8eb4359447274.png" style="max-width: 100.0%;max-height: 100.0%;"> </center><p>Могут быть даны любые повороты и зеркальные отражения фигур с картинки выше. В процессе укладывания фигуры вращать её нельзя.</p><p>Вам задано текущее состояние поля и набор фигур для укладывания. Ваша цель&nbsp;— уложить фигуры так, чтобы минимизировать количество блоков на поле в конце игры. Фигуры можно укладывать в любом порядке. Обратите внимание, что каждый раз после размещения очередной фигуры на поле происходит очищение полностью заполненных блоками строк и столбцов.</p><p>Требуется последовательно уложить все фигуры и вывести минимальное количество блоков, которое останется на поле после укладывания всех фигур. Выведите <span class="tex-font-style-tt">-1</span>, если уложить все фигуры невозможно.</p><p>Неполные решения этой задачи (например, недостаточно эффективные) могут быть оценены частичным баллом. Для набора <span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-2-Frame" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mn&gt;15&lt;/mn&gt;&lt;/math&gt;" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-6" style="width: 1.253em; display: inline-block;"><span style="display: inline-block; position: relative; width: 1.015em; height: 0px; font-size: 120%;"><span style="position: absolute; clip: rect(1.372em, 1000.96em, 2.384em, -999.997em); top: -2.199em; left: 0em;"><span class="mrow" id="MathJax-Span-7"><span class="mn" id="MathJax-Span-8" style="font-family: MathJax_Main;">15</span></span><span style="display: inline-block; width: 0px; height: 2.205em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.068em; border-left: 0px solid; width: 0px; height: 1.004em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>15</mn></math></span></span><script type="math/tex" id="MathJax-Element-2">15</script> баллов достаточно решить частный случай задачи с <span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-3-Frame" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;k&lt;/mi&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;/math&gt;" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-9" style="width: 2.86em; display: inline-block;"><span style="display: inline-block; position: relative; width: 2.384em; height: 0px; font-size: 120%;"><span style="position: absolute; clip: rect(1.313em, 1002.32em, 2.384em, -999.997em); top: -2.199em; left: 0em;"><span class="mrow" id="MathJax-Span-10"><span class="mi" id="MathJax-Span-11" style="font-family: MathJax_Math-italic;">k</span><span class="mo" id="MathJax-Span-12" style="font-family: MathJax_Main; padding-left: 0.301em;">=</span><span class="mn" id="MathJax-Span-13" style="font-family: MathJax_Main; padding-left: 0.301em;">1</span></span><span style="display: inline-block; width: 0px; height: 2.205em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.068em; border-left: 0px solid; width: 0px; height: 1.004em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>k</mi><mo>=</mo><mn>1</mn></math></span></span><script type="math/tex" id="MathJax-Element-3">k=1</script>.</p></div><div class="input-specification"><div class="section-title">Входные данные</div><p>Первые <span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-4-Frame" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mn&gt;8&lt;/mn&gt;&lt;/math&gt;" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-14" style="width: 0.598em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.479em; height: 0px; font-size: 120%;"><span style="position: absolute; clip: rect(1.372em, 1000.42em, 2.384em, -999.997em); top: -2.199em; left: 0em;"><span class="mrow" id="MathJax-Span-15"><span class="mn" id="MathJax-Span-16" style="font-family: MathJax_Main;">8</span></span><span style="display: inline-block; width: 0px; height: 2.205em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.068em; border-left: 0px solid; width: 0px; height: 1.004em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>8</mn></math></span></span><script type="math/tex" id="MathJax-Element-4">8</script> строк содержат по <span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-5-Frame" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mn&gt;8&lt;/mn&gt;&lt;/math&gt;" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-17" style="width: 0.598em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.479em; height: 0px; font-size: 120%;"><span style="position: absolute; clip: rect(1.372em, 1000.42em, 2.384em, -999.997em); top: -2.199em; left: 0em;"><span class="mrow" id="MathJax-Span-18"><span class="mn" id="MathJax-Span-19" style="font-family: MathJax_Main;">8</span></span><span style="display: inline-block; width: 0px; height: 2.205em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.068em; border-left: 0px solid; width: 0px; height: 1.004em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>8</mn></math></span></span><script type="math/tex" id="MathJax-Element-5">8</script> символов каждая&nbsp;— текущее состояние поля. Символ '<span class="tex-font-style-tt">.</span>' (точка) соответствует пустой клетке, а символ '<span class="tex-font-style-tt">*</span>' (звёздочка)&nbsp;— клетке с блоком. Гарантируется, что текущее состояние поля таково, что в нём нет сплошных строк и/или столбцов из блоков.</p><p>Следующая строка содержит целое число <span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-6-Frame" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;k&lt;/mi&gt;&lt;/math&gt;" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-20" style="width: 0.658em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.539em; height: 0px; font-size: 120%;"><span style="position: absolute; clip: rect(1.313em, 1000.54em, 2.384em, -999.997em); top: -2.199em; left: 0em;"><span class="mrow" id="MathJax-Span-21"><span class="mi" id="MathJax-Span-22" style="font-family: MathJax_Math-italic;">k</span></span><span style="display: inline-block; width: 0px; height: 2.205em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.068em; border-left: 0px solid; width: 0px; height: 1.004em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>k</mi></math></span></span><script type="math/tex" id="MathJax-Element-6">k</script> (<span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-7-Frame" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;mo&gt;&amp;#x2264;&lt;/mo&gt;&lt;mi&gt;k&lt;/mi&gt;&lt;mo&gt;&amp;#x2264;&lt;/mo&gt;&lt;mn&gt;3&lt;/mn&gt;&lt;/math&gt;" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-23" style="width: 5.182em; display: inline-block;"><span style="display: inline-block; position: relative; width: 4.289em; height: 0px; font-size: 120%;"><span style="position: absolute; clip: rect(1.313em, 1004.23em, 2.503em, -999.997em); top: -2.199em; left: 0em;"><span class="mrow" id="MathJax-Span-24"><span class="mn" id="MathJax-Span-25" style="font-family: MathJax_Main;">1</span><span class="mo" id="MathJax-Span-26" style="font-family: MathJax_Main; padding-left: 0.301em;">≤</span><span class="mi" id="MathJax-Span-27" style="font-family: MathJax_Math-italic; padding-left: 0.301em;">k</span><span class="mo" id="MathJax-Span-28" style="font-family: MathJax_Main; padding-left: 0.301em;">≤</span><span class="mn" id="MathJax-Span-29" style="font-family: MathJax_Main; padding-left: 0.301em;">3</span></span><span style="display: inline-block; width: 0px; height: 2.205em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.211em; border-left: 0px solid; width: 0px; height: 1.146em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>1</mn><mo>≤</mo><mi>k</mi><mo>≤</mo><mn>3</mn></math></span></span><script type="math/tex" id="MathJax-Element-7">1 \le k \le 3</script>)&nbsp;— количество заданных фигур. Обратите внимание, что первые тесты содержат только <span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-8-Frame" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;k&lt;/mi&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;/math&gt;" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-30" style="width: 2.86em; display: inline-block;"><span style="display: inline-block; position: relative; width: 2.384em; height: 0px; font-size: 120%;"><span style="position: absolute; clip: rect(1.313em, 1002.32em, 2.384em, -999.997em); top: -2.199em; left: 0em;"><span class="mrow" id="MathJax-Span-31"><span class="mi" id="MathJax-Span-32" style="font-family: MathJax_Math-italic;">k</span><span class="mo" id="MathJax-Span-33" style="font-family: MathJax_Main; padding-left: 0.301em;">=</span><span class="mn" id="MathJax-Span-34" style="font-family: MathJax_Main; padding-left: 0.301em;">1</span></span><span style="display: inline-block; width: 0px; height: 2.205em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.068em; border-left: 0px solid; width: 0px; height: 1.004em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>k</mi><mo>=</mo><mn>1</mn></math></span></span><script type="math/tex" id="MathJax-Element-8">k=1</script>, и для набора <span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-9-Frame" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mn&gt;15&lt;/mn&gt;&lt;/math&gt;" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-35" style="width: 1.253em; display: inline-block;"><span style="display: inline-block; position: relative; width: 1.015em; height: 0px; font-size: 120%;"><span style="position: absolute; clip: rect(1.372em, 1000.96em, 2.384em, -999.997em); top: -2.199em; left: 0em;"><span class="mrow" id="MathJax-Span-36"><span class="mn" id="MathJax-Span-37" style="font-family: MathJax_Main;">15</span></span><span style="display: inline-block; width: 0px; height: 2.205em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.068em; border-left: 0px solid; width: 0px; height: 1.004em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>15</mn></math></span></span><script type="math/tex" id="MathJax-Element-9">15</script> баллов достаточно решить частный случай задачи с <span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-10-Frame" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;k&lt;/mi&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;/math&gt;" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-38" style="width: 2.86em; display: inline-block;"><span style="display: inline-block; position: relative; width: 2.384em; height: 0px; font-size: 120%;"><span style="position: absolute; clip: rect(1.313em, 1002.32em, 2.384em, -999.997em); top: -2.199em; left: 0em;"><span class="mrow" id="MathJax-Span-39"><span class="mi" id="MathJax-Span-40" style="font-family: MathJax_Math-italic;">k</span><span class="mo" id="MathJax-Span-41" style="font-family: MathJax_Main; padding-left: 0.301em;">=</span><span class="mn" id="MathJax-Span-42" style="font-family: MathJax_Main; padding-left: 0.301em;">1</span></span><span style="display: inline-block; width: 0px; height: 2.205em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.068em; border-left: 0px solid; width: 0px; height: 1.004em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>k</mi><mo>=</mo><mn>1</mn></math></span></span><script type="math/tex" id="MathJax-Element-10">k=1</script>.</p><p>Затем заданы фигуры. Описание каждой фигуры начинается со строки, которая содержит целое число <span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-11-Frame" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;msub&gt;&lt;mi&gt;l&lt;/mi&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;/msub&gt;&lt;/math&gt;" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-43" style="width: 0.717em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.598em; height: 0px; font-size: 120%;"><span style="position: absolute; clip: rect(1.313em, 1000.6em, 2.562em, -999.997em); top: -2.199em; left: 0em;"><span class="mrow" id="MathJax-Span-44"><span class="msubsup" id="MathJax-Span-45"><span style="display: inline-block; position: relative; width: 0.598em; height: 0px;"><span style="position: absolute; clip: rect(3.098em, 1000.24em, 4.17em, -999.997em); top: -3.985em; left: 0em;"><span class="mi" id="MathJax-Span-46" style="font-family: MathJax_Math-italic;">l</span><span style="display: inline-block; width: 0px; height: 3.991em;"></span></span><span style="position: absolute; top: -3.807em; left: 0.301em;"><span class="mi" id="MathJax-Span-47" style="font-size: 70.7%; font-family: MathJax_Math-italic;">i</span><span style="display: inline-block; width: 0px; height: 3.991em;"></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 2.205em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.282em; border-left: 0px solid; width: 0px; height: 1.146em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>l</mi><mi>i</mi></msub></math></span></span><script type="math/tex" id="MathJax-Element-11">l_i</script> (<span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-12-Frame" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;mo&gt;&amp;#x2264;&lt;/mo&gt;&lt;msub&gt;&lt;mi&gt;l&lt;/mi&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;/msub&gt;&lt;mo&gt;&amp;#x2264;&lt;/mo&gt;&lt;mn&gt;5&lt;/mn&gt;&lt;/math&gt;" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-48" style="width: 5.241em; display: inline-block;"><span style="display: inline-block; position: relative; width: 4.348em; height: 0px; font-size: 120%;"><span style="position: absolute; clip: rect(1.313em, 1004.29em, 2.562em, -999.997em); top: -2.199em; left: 0em;"><span class="mrow" id="MathJax-Span-49"><span class="mn" id="MathJax-Span-50" style="font-family: MathJax_Main;">1</span><span class="mo" id="MathJax-Span-51" style="font-family: MathJax_Main; padding-left: 0.301em;">≤</span><span class="msubsup" id="MathJax-Span-52" style="padding-left: 0.301em;"><span style="display: inline-block; position: relative; width: 0.598em; height: 0px;"><span style="position: absolute; clip: rect(3.098em, 1000.24em, 4.17em, -999.997em); top: -3.985em; left: 0em;"><span class="mi" id="MathJax-Span-53" style="font-family: MathJax_Math-italic;">l</span><span style="display: inline-block; width: 0px; height: 3.991em;"></span></span><span style="position: absolute; top: -3.807em; left: 0.301em;"><span class="mi" id="MathJax-Span-54" style="font-size: 70.7%; font-family: MathJax_Math-italic;">i</span><span style="display: inline-block; width: 0px; height: 3.991em;"></span></span></span></span><span class="mo" id="MathJax-Span-55" style="font-family: MathJax_Main; padding-left: 0.301em;">≤</span><span class="mn" id="MathJax-Span-56" style="font-family: MathJax_Main; padding-left: 0.301em;">5</span></span><span style="display: inline-block; width: 0px; height: 2.205em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.282em; border-left: 0px solid; width: 0px; height: 1.146em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>1</mn><mo>≤</mo><msub><mi>l</mi><mi>i</mi></msub><mo>≤</mo><mn>5</mn></math></span></span><script type="math/tex" id="MathJax-Element-12">1 \le l_i \le 5</script>)&nbsp;— количество строк в описании фигуры. Затем заданы <span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-13-Frame" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;msub&gt;&lt;mi&gt;l&lt;/mi&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;/msub&gt;&lt;/math&gt;" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-57" style="width: 0.717em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.598em; height: 0px; font-size: 120%;"><span style="position: absolute; clip: rect(1.313em, 1000.6em, 2.562em, -999.997em); top: -2.199em; left: 0em;"><span class="mrow" id="MathJax-Span-58"><span class="msubsup" id="MathJax-Span-59"><span style="display: inline-block; position: relative; width: 0.598em; height: 0px;"><span style="position: absolute; clip: rect(3.098em, 1000.24em, 4.17em, -999.997em); top: -3.985em; left: 0em;"><span class="mi" id="MathJax-Span-60" style="font-family: MathJax_Math-italic;">l</span><span style="display: inline-block; width: 0px; height: 3.991em;"></span></span><span style="position: absolute; top: -3.807em; left: 0.301em;"><span class="mi" id="MathJax-Span-61" style="font-size: 70.7%; font-family: MathJax_Math-italic;">i</span><span style="display: inline-block; width: 0px; height: 3.991em;"></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 2.205em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.282em; border-left: 0px solid; width: 0px; height: 1.146em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>l</mi><mi>i</mi></msub></math></span></span><script type="math/tex" id="MathJax-Element-13">l_i</script> строк с описанием фигуры в виде прямоугольника минимального размера, который её содержит. Формат задания аналогичен тому, как задано поле. Каждая фигура является одной из <span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-14-Frame" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mn&gt;12&lt;/mn&gt;&lt;/math&gt;" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-62" style="width: 1.253em; display: inline-block;"><span style="display: inline-block; position: relative; width: 1.015em; height: 0px; font-size: 120%;"><span style="position: absolute; clip: rect(1.372em, 1000.96em, 2.384em, -999.997em); top: -2.199em; left: 0em;"><span class="mrow" id="MathJax-Span-63"><span class="mn" id="MathJax-Span-64" style="font-family: MathJax_Main;">12</span></span><span style="display: inline-block; width: 0px; height: 2.205em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.068em; border-left: 0px solid; width: 0px; height: 0.932em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>12</mn></math></span></span><script type="math/tex" id="MathJax-Element-14">12</script> допустимых (перечислены на картинке выше), возможно, повёрнутая и/или отражённая.</p></div><div class="output-specification"><div class="section-title">Выходные данные</div><p>Выведите одно целое число&nbsp;— минимальное количество блоков на поле после укладывания <span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-15-Frame" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;k&lt;/mi&gt;&lt;/math&gt;" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-65" style="width: 0.658em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.539em; height: 0px; font-size: 120%;"><span style="position: absolute; clip: rect(1.313em, 1000.54em, 2.384em, -999.997em); top: -2.199em; left: 0em;"><span class="mrow" id="MathJax-Span-66"><span class="mi" id="MathJax-Span-67" style="font-family: MathJax_Math-italic;">k</span></span><span style="display: inline-block; width: 0px; height: 2.205em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.068em; border-left: 0px solid; width: 0px; height: 1.004em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>k</mi></math></span></span><script type="math/tex" id="MathJax-Element-15">k</script> заданных фигур в произвольном порядке оптимальным способом.</p><p>Выведите <span class="tex-font-style-tt">-1</span>, если не существует способа уложить все фигуры на поле.</p><p>Заметим, что последний пример иллюстрирует случай <span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-16-Frame" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;k&lt;/mi&gt;&lt;mo&gt;&amp;gt;&lt;/mo&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;/math&gt;" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-68" style="width: 2.86em; display: inline-block;"><span style="display: inline-block; position: relative; width: 2.384em; height: 0px; font-size: 120%;"><span style="position: absolute; clip: rect(1.313em, 1002.32em, 2.443em, -999.997em); top: -2.199em; left: 0em;"><span class="mrow" id="MathJax-Span-69"><span class="mi" id="MathJax-Span-70" style="font-family: MathJax_Math-italic;">k</span><span class="mo" id="MathJax-Span-71" style="font-family: MathJax_Main; padding-left: 0.301em;">&gt;</span><span class="mn" id="MathJax-Span-72" style="font-family: MathJax_Main; padding-left: 0.301em;">1</span></span><span style="display: inline-block; width: 0px; height: 2.205em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.139em; border-left: 0px solid; width: 0px; height: 1.004em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>k</mi><mo>&gt;</mo><mn>1</mn></math></span></span><script type="math/tex" id="MathJax-Element-16">k>1</script>. Этот пример не обязательно должен проходить, чтобы вы набрали <span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-17-Frame" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mn&gt;15&lt;/mn&gt;&lt;/math&gt;" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-73" style="width: 1.253em; display: inline-block;"><span style="display: inline-block; position: relative; width: 1.015em; height: 0px; font-size: 120%;"><span style="position: absolute; clip: rect(1.372em, 1000.96em, 2.384em, -999.997em); top: -2.199em; left: 0em;"><span class="mrow" id="MathJax-Span-74"><span class="mn" id="MathJax-Span-75" style="font-family: MathJax_Main;">15</span></span><span style="display: inline-block; width: 0px; height: 2.205em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.068em; border-left: 0px solid; width: 0px; height: 1.004em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>15</mn></math></span></span><script type="math/tex" id="MathJax-Element-17">15</script> баллов.</p></div><div class="sample-tests"><div class="section-title">Примеры</div><div class="sample-test"><div class="input"><div class="title">Входные данные<div title="Скопировать" data-clipboard-target="#id003449568742118416" id="id0014603998011938724" class="input-output-copier">Скопировать</div></div><pre id="id003449568742118416">*****.**
+***.*.**
+**..****
+**..*...
+........
+****.***
+...*.***
+******..
+1
+3
+***
+..*
+..*
+</pre></div><div class="output"><div class="title">Выходные данные<div title="Скопировать" data-clipboard-target="#id0009723191232838158" id="id0014323188046562363" class="input-output-copier">Скопировать</div></div><pre id="id0009723191232838158">29
+</pre></div><div class="input"><div class="title">Входные данные<div title="Скопировать" data-clipboard-target="#id009261736652538377" id="id008036836404594216" class="input-output-copier">Скопировать</div></div><pre id="id009261736652538377">.*******
+******.*
+*****.**
+*.....**
+*****.**
+*.***.**
+**.*****
+*******.
+1
+3
+.*
+**
+.*
+</pre></div><div class="output"><div class="title">Выходные данные<div title="Скопировать" data-clipboard-target="#id008781753482608698" id="id0033340543145499124" class="input-output-copier">Скопировать</div></div><pre id="id008781753482608698">33
+</pre></div><div class="input"><div class="title">Входные данные<div title="Скопировать" data-clipboard-target="#id002918450828803312" id="id0032731310098927535" class="input-output-copier">Скопировать</div></div><pre id="id002918450828803312">*.******
+..******
+*..**.**
+*.*.****
+*.***.**
+*.**..**
+*.*.**.*
+*.*****.
+1
+2
+**.
+.**
+</pre></div><div class="output"><div class="title">Выходные данные<div title="Скопировать" data-clipboard-target="#id00819316003824812" id="id0046928512786539" class="input-output-copier">Скопировать</div></div><pre id="id00819316003824812">28
+</pre></div><div class="input"><div class="title">Входные данные<div title="Скопировать" data-clipboard-target="#id005005681709022332" id="id00915427454920331" class="input-output-copier">Скопировать</div></div><pre id="id005005681709022332">***.****
+*.******
+.***....
+*.*....*
+*.***..*
+*.....*.
+*...*.**
+.******.
+3
+2
+**
+**
+5
+*
+*
+*
+*
+*
+2
+.**
+**.
+</pre></div><div class="output"><div class="title">Выходные данные<div title="Скопировать" data-clipboard-target="#id0036754431781286523" id="id004069217277615973" class="input-output-copier">Скопировать</div></div><pre id="id0036754431781286523">18
+</pre></div></div></div></div><p>  </p></div>
+</div>
+
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        window.changedTests = new Set();
+
+        function endsWith(string, suffix) {
+            return string.indexOf(suffix, string.length - suffix.length) !== -1;
+        }
+
+        const inputFileDiv = $("div.input-file");
+        const inputFile = inputFileDiv.text();
+        const outputFileDiv = $("div.output-file");
+        const outputFile = outputFileDiv.text();
+
+
+        if (!endsWith(inputFile, "стандартный ввод")
+            && !endsWith(inputFile, "standard input")) {
+            inputFileDiv.attr("style", "font-weight: bold");
+        }
+
+        if (!endsWith(outputFile, "стандартный вывод")
+            && !endsWith(outputFile, "standard output")) {
+            outputFileDiv.attr("style", "font-weight: bold");
+        }
+
+        const titleDiv = $("div.header div.title");
+
+
+
+        String.prototype.replaceAll = function (search, replace) {
+            return this.split(search).join(replace);
+        };
+
+        $(".sample-test .title").each(function () {
+            const preId = ("id" + Math.random()).replaceAll(".", "0");
+            const cpyId = ("id" + Math.random()).replaceAll(".", "0");
+
+            $(this).parent().find("pre").attr("id", preId);
+            const $copy = $("<div title='Скопировать' data-clipboard-target='#" + preId + "' id='" + cpyId + "' class='input-output-copier'>Скопировать</div>");
+            $(this).append($copy);
+
+            const clipboard = new Clipboard('#' + cpyId, {
+                text: function (trigger) {
+                    const pre = document.querySelector('#' + preId);
+                    const lines = pre.querySelectorAll(".test-example-line");
+                    return Codeforces.filterClipboardText(pre.innerText, lines.length);
+                }
+            });
+
+            const isInput = $(this).parent().hasClass("input");
+
+            clipboard.on('success', function (e) {
+                if (isInput) {
+                    Codeforces.showMessage("Входные данные были скопированы в буфер обмена");
+                } else {
+                    Codeforces.showMessage("Выходные данные были скопированы в буфер обмена");
+                }
+                e.clearSelection();
+            });
+        });
+
+        $(".test-form-item input").change(function () {
+            addPendingSubmissionMessage($($(this).closest("form")), "Вы изменили ответ, не забудьте его отправить, если вы хотите сохранить изменения");
+            const index = $(this).closest(".problemindexholder").attr("problemindex");
+            let test = "";
+            $(this).closest("form input").each(function () {
+                const test_ = $(this).attr("name");
+                if (test_ && test_.substring(0, 4) === "test") {
+                    test = test_;
+                }
+            });
+            if (index.length > 0 && test.length > 0) {
+                const indexTest = index + "::" + test;
+                window.changedTests.add(indexTest);
+            }
+        });
+
+        $(window).on('beforeunload', function () {
+            if (window.changedTests.size > 0) {
+                return 'Dialog text here';
+            }
+        });
+
+        autosize($('.test-explanation textarea'));
+
+        $(".test-example-line").hover(function() {
+            $(this).attr("class").split(" ").forEach((clazz) => {
+                if (clazz.substr(0, "test-example-line-".length) === "test-example-line-") {
+                    let end = clazz.substr("test-example-line-".length);
+                    if (end !== "even" && end !== "odd" && end !== "0") {
+                        let top = 1E20;
+                        let left = 1E20;
+                        let problem = $(this).closest(".problemindexholder");
+                        $(this).closest(".input").find("." + clazz).css("background-color", "#FFFDE7").each(function() {
+                            top = Math.min(top, $(this).offset().top);
+                            left = Math.min(left, $(this).offset().left);
+                        });
+                        let testCaseMarker = problem.find(".testCaseMarker_" + end);
+                        if (testCaseMarker.length === 0) {
+                            const html = "<div class=\"testCaseMarker testCaseMarker_" + end + " notice\"></div>";
+                            problem.append($(html));
+                            testCaseMarker = problem.find(".testCaseMarker_" + end);
+                        }
+                        if (testCaseMarker) {
+                            testCaseMarker.show()
+                                    .offset({top, left: left - 20})
+                                    .text(end);
+                        }
+                    }
+                }
+            });
+        }, function() {
+            $(this).attr("class").split(" ").forEach((clazz) => {
+                if (clazz.substr(0, "test-example-line-".length) === "test-example-line-") {
+                    let end = clazz.substr("test-example-line-".length);
+                    if (end !== "even" && end !== "odd" && end !== "0") {
+                        $("." + clazz).css("background-color", "");
+                        $(this).closest(".problemindexholder").find(".testCaseMarker_" + end).hide();
+                    }
+                }
+            });
+        });
+
+    });
+</script>
+                </div>
+        </div>
+            <br style="clear: both;">
+            <div id="footer">
+                <div>Codeforces (c) Copyright 2010-2023 Михаил Мирзаянов</div>
+                <div>Соревнования по программированию 2.0</div>
+                    <div>Время на сервере: 05.02.2023 19:47:16<sup title="часовой пояс" style="font-size:8px;">UTC+5</sup> (h1).</div>
+                    <div>Десктопная версия, переключиться на <a rel="nofollow" class="switchToMobile" href="https://routejunior.contest.codeforces.com/group/H3VxISVcTk/contest/425602/problem/H?mobile=true">мобильную</a>.</div>
+                <div class="smaller"><a href="https://routejunior.contest.codeforces.com/privacy">Privacy Policy</a></div>
+
+                    <div style="margin-top: 25px;">
+                        На платформе
+                    </div>
+                    <div style="margin-top: 8px; padding-bottom: 20px;">
+                        <img style="margin-right: 1em; height: 60px;" src="./Задача - H - Codeforces_files/codeforces-logo-190x60.png" alt="Codeforces" title="Codeforces">
+                    </div>
+            </div>
+        <script type="text/javascript">
+            $(function() {
+                $(".switchToMobile").click(function() {
+                    Codeforces.redirect(Codeforces.updateUrlParameter(document.location.href, "mobile", "true"));
+                    return false;
+                });
+                $(".switchToDesktop").click(function() {
+                    Codeforces.redirect(Codeforces.updateUrlParameter(document.location.href, "mobile", "false"));
+                    return false;
+                });
+            });
+        </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            if ($(window).width() < 1600) {
+                $('.button-up').css('width', '30px').css('line-height', '30px').css('font-size', '20px');
+            }
+
+            if ($(window).width() >= 1200) {
+                $ (window).scroll (function () {
+                    if ($ (this).scrollTop () > 100) {
+                        $ ('.button-up').fadeIn();
+                    } else {
+                        $ ('.button-up').fadeOut();
+                    }
+                });
+
+                $('.button-up').click(function () {
+                    $('body,html').animate({
+                        scrollTop: 0
+                    }, 500);
+                    return false;
+                });
+
+                $('.button-up').hover(function () {
+                    $(this).animate({
+                        'opacity':'1'
+                    }).css({'background-color':'#e7ebf0','color':'#6a86a4'});
+                }, function () {
+                    $(this).animate({
+                        'opacity':'0.7'
+                    }).css({'background':'none','color':'#d3dbe4'});;
+                });
+            }
+            Codeforces.focusOnError();
+        });
+    </script>
+    <div class="userListsFacebox" style="display:none;">
+        <div style="padding: 0.5em; width: 600px; max-height: 200px; overflow-y: auto">
+<div class="datatable" style="background-color: #E1E1E1; padding-bottom: 3px;">
+            <div class="lt">&nbsp;</div>
+            <div class="rt">&nbsp;</div>
+            <div class="lb">&nbsp;</div>
+            <div class="rb">&nbsp;</div>
+
+            <div style="padding: 4px 0 0 6px;font-size:1.4rem;position:relative;">
+                Списки пользователей
+
+                <div style="position:absolute;right:0.25em;top:0.35em;">
+                    <span style="padding:0;position:relative;bottom:2px;" class="rowCount"></span>
+
+                    <img class="closed" src="./Задача - H - Codeforces_files/control.png">
+
+                    <span class="filter" style="display:none;">
+                        <img class="opened" src="./Задача - H - Codeforces_files/control-270.png">
+                        <input style="padding:0 0 0 20px;position:relative;bottom:2px;border:1px solid #aaa;height:17px;font-size:1.3rem;">
+                    </span>
+                </div>
+            </div>
+            <div style="background-color: white;margin:0.3em 3px 0 3px;position:relative;">
+            <div class="ilt">&nbsp;</div>
+            <div class="irt">&nbsp;</div>
+            <table class="">
+                <thead>
+                <tr>
+                    <th class="top left right">Название</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="no-items visible"><td style="text-align:left;" colspan="32" class="bottom dark left right">Нет данных</td></tr></tbody>
+            </table>
+            </div>
+        </div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+                // Create new ':containsIgnoreCase' selector for search
+                jQuery.expr[':'].containsIgnoreCase = function(a, i, m) {
+                    return jQuery(a).text().toUpperCase()
+                            .indexOf(m[3].toUpperCase()) >= 0;
+                };
+
+                if (window.updateDatatableFilter == undefined) {
+                    window.updateDatatableFilter = function(i) {
+                        var parent = $(i).parent().parent().parent().parent();
+                        $("tr.no-items", parent).remove();
+                        $("tr", parent).hide().removeClass('visible');
+                        var text = $(i).val();
+                        if (text) {
+                            $("tr" + ":containsIgnoreCase('" + text + "')", parent).show().addClass('visible');
+                        } else {
+                            parent.find(".rowCount").text("");
+                            $("tr", parent).show().addClass('visible');
+                        }
+
+                        var found = false;
+                        var visibleRowCount = 0;
+                        $("tr", parent).each(function () {
+                            if (!found) {
+                                if ($(this).find("th").size() > 0) {
+                                    $(this).show().addClass('visible');
+                                    found = true;
+                                }
+                            }
+                            if ($(this).hasClass('visible')) {
+                                visibleRowCount++;
+                            }
+                        });
+                        if (text) {
+                            parent.find(".rowCount").text("Совпадений: " + (visibleRowCount - (found ? 1 : 0)));
+                        }
+                        if (visibleRowCount == (found ? 1 : 0)) {
+                            $("<tr class='no-items visible'><td style=\"text-align:left;\"colspan=\"32\">Нет данных<\/td><\/tr>").appendTo($(parent).find('table'));
+                        }
+                        $(parent).find("tr td").removeClass("dark");
+                        $(parent).find("tr.visible:odd td").addClass("dark");
+                    }
+
+                    $(".datatable .closed").click(function () {
+                        var parent = $(this).parent();
+                        $(this).hide();
+                        $(".filter", parent).fadeIn(function () {
+                            $("input", parent).val("").focus().css("border", "1px solid #aaa");
+                        });
+                    });
+
+                    $(".datatable .opened").click(function () {
+                        var parent = $(this).parent().parent();
+                        $(".filter", parent).fadeOut(function () {
+                            $(".closed", parent).show();
+                            $("input", parent).val("").each(function () {
+                                window.updateDatatableFilter(this);
+                            });
+                        });
+                    });
+
+                    $(".datatable .filter input").keyup(function(e) {
+                        window.updateDatatableFilter(this);
+                        e.preventDefault();
+                        e.stopPropagation();
+                    });
+
+                    $(".datatable table").each(function () {
+                        var found = false;
+                        $("tr", this).each(function () {
+                            if (!found && $(this).find("th").size() == 0) {
+                                found = true;
+                            }
+                        });
+                        if (!found) {
+                            $("<tr class='no-items visible'><td style=\"text-align:left;\"colspan=\"32\">Нет данных<\/td><\/tr>").appendTo(this);
+                        }
+                    });
+
+                    // Applies styles to datatables.
+                    $(".datatable").each(function () {
+                        $(this).find("tr:first th").addClass("top");
+                        $(this).find("tr:last td").addClass("bottom");
+                        $(this).find("tr:odd td").addClass("dark");
+                        $(this).find("tr td:first-child, tr th:first-child").addClass("left");
+                        $(this).find("tr td:last-child, tr th:last-child").addClass("right");
+                    });
+
+                    $(".datatable table.tablesorter").each(function () {
+                        $(this).bind("sortEnd", function () {
+                            $(".datatable").each(function () {
+                                $(this).find("th, td")
+                                    .removeClass("top").removeClass("bottom")
+                                    .removeClass("left").removeClass("right")
+                                    .removeClass("dark");
+                                $(this).find("tr:first th").addClass("top");
+                                $(this).find("tr:last td").addClass("bottom");
+                                $(this).find("tr:odd td").addClass("dark");
+                                $(this).find("tr td:first-child, tr th:first-child").addClass("left");
+                                $(this).find("tr td:last-child, tr th:last-child").addClass("right");
+                            });
+                        });
+                    });
+                }
+        });
+    </script>
+        </div>
+    </div>
+    <script type="application/javascript">
+        $(function() {
+            $(".userListMarker").click(function() {
+                $.post("/data/lists", {action: "findTouched"}, function(json) {
+                    Codeforces.facebox(".userListsFacebox");
+                    var tbody = $("#facebox tbody");
+                    tbody.empty();
+                    for (var i in json) {
+                        tbody.append(
+                            $("<tr></tr>").append(
+                                $("<td></td>").attr("data-readKey", json[i].readKey).text(json[i].name)
+                            )
+                        );
+                    }
+                    Codeforces.updateDatatables();
+                    tbody.find("td").css("cursor", "pointer").click(function() {
+                        document.location = Codeforces.updateUrlParameter(document.location.href, "list", $(this).attr("data-readKey"));
+                    });
+                }, "json");
+            });
+        });
+    </script>
+</div>
+
+
+<div id="datepick-div" style="display: none;"></div><div id="cboxOverlay" style="display: none;"></div><div id="colorbox" class="" style="display: none; padding-bottom: 42px; padding-right: 42px;"><div id="cboxWrapper"><div><div id="cboxTopLeft" style="float: left;"></div><div id="cboxTopCenter" style="float: left;"></div><div id="cboxTopRight" style="float: left;"></div></div><div style="clear: left;"><div id="cboxMiddleLeft" style="float: left;"></div><div id="cboxContent" style="float: left;"><div id="cboxLoadedContent" style="width: 0px; height: 0px; overflow: hidden; float: left;"></div><div id="cboxLoadingOverlay" style="float: left;"></div><div id="cboxLoadingGraphic" style="float: left;"></div><div id="cboxTitle" style="float: left;"></div><div id="cboxCurrent" style="float: left;"></div><div id="cboxNext" style="float: left;"></div><div id="cboxPrevious" style="float: left;"></div><div id="cboxSlideshow" style="float: left;"></div><div id="cboxClose" style="float: left;"></div></div><div id="cboxMiddleRight" style="float: left;"></div></div><div style="clear: left;"><div id="cboxBottomLeft" style="float: left;"></div><div id="cboxBottomCenter" style="float: left;"></div><div id="cboxBottomRight" style="float: left;"></div></div></div><div style="position: absolute; width: 9999px; visibility: hidden; display: none;"></div></div><div style="position: absolute; width: 0px; height: 0px; overflow: hidden; padding: 0px; border: 0px; margin: 0px;"><div id="MathJax_Font_Test" style="position: absolute; visibility: hidden; top: 0px; left: 0px; width: auto; min-width: 0px; max-width: none; padding: 0px; border: 0px; margin: 0px; white-space: nowrap; text-align: left; text-indent: 0px; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; font-size: 40px; font-weight: normal; font-style: normal; font-family: MathJax_Math-italic, sans-serif;"></div></div></body></html>

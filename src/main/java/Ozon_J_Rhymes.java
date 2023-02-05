@@ -2,7 +2,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class YandexSprintDraft {
+// не смог правильно понять задание
+public class Ozon_J_Rhymes {
     private static BufferedReader reader = null;
     public static int n; // размер словаря
     public static int q; // количество запросов.
@@ -49,7 +50,7 @@ public class YandexSprintDraft {
 //                    }
 //                    System.out.println(foo.indexOf(bar));
 //                    System.out.println(answer.indexOf(bar));
-                    if ( foo.indexOf(bar) <  answer.indexOf(bar)) {
+                    if (foo.indexOf(bar) < answer.indexOf(bar)) {
                         answer = foo;
                     }
                 }
@@ -90,8 +91,3 @@ public class YandexSprintDraft {
         return X.substring(endingIndex - maxlen, endingIndex);
     }
 }
-/*
-R.R.R.G
-.Y.G.G.
-B.Y.V.V
- */
