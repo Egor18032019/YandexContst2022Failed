@@ -39,6 +39,7 @@ public class Y_KnowPurchase {
         System.out.println(four);
     }
 
+    // таки и не понял как так сделать
     public static List<Integer> getMaxDiff(List<Integer> list) {
         int diff = Integer.MIN_VALUE;
         int n = list.size();
