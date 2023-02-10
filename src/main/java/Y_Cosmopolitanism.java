@@ -89,7 +89,7 @@ public class Y_Cosmopolitanism {
                         myRatingCountry.put(q, value);
                     }
                 } else {
-                    if (heySchool.equals(mySchool)) { // 0 0  or 1 1
+                    if (mySchool.equals("1")) { // 0 0  or 1 1
                         int needMoney = mapForProfit.get(q);
                         if (myMoney >= needMoney) {
                             int value = myRatingCountry.get(q) + 1;
@@ -108,7 +108,7 @@ public class Y_Cosmopolitanism {
                 }
             }
 
-            System.out.println(maxKey);
+            System.out.print(maxKey + " ");
         }
 
 
