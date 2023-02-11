@@ -1,9 +1,7 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Map;
 import java.util.StringTokenizer;
-import java.util.TreeMap;
 
 public class Tin_OldThermometer {
     private static BufferedReader reader = null;
@@ -26,21 +24,60 @@ public class Tin_OldThermometer {
         int minus = 0;
         int plus = 0;
         int sum = 0;
-        int [] arr = new
+        int[] arr = new int[n];
+        boolean isPlus = false;
+        boolean canAnswer = false;
+
         for (int row = 0; row < n; row++) {
             StringTokenizer stringTokenizer = new StringTokenizer(reader.readLine());
             int point = Integer.parseInt(stringTokenizer.nextToken());
+            arr[row] = point;
             String foo = stringTokenizer.nextToken();
+            boolean now = foo.equals(p);
             sum = sum + point;
-            if (foo.equals(p)) {
-                plus = sum;
+            if (row == 0) {
+                isPlus = now;
             } else {
-                minus = sum;
+                if (now != isPlus) {
+                    canAnswer = true;
+                    isPlus = now;
+                    if (isPlus) {
+                        plus = sum;
+                    } else {
+                        minus = sum;
+                    }
+                } else {
+                    // если без перехода всё идет то
+                    if (isPlus) {
+                        if (sum < plus) {
+                            plus = sum;
+                        }
+                    } else {
+                        if (sum > minus) {
+                            minus = sum;
+                        }
+                    }
+                }
+
             }
         }
-        int x = plus - minus;
-        System.out.println(plus);
-        System.out.println(minus);
-        System.out.println(x);
+        int x = -(minus + plus - minus);
+
+        if (canAnswer) {
+            for (int t : arr) {
+                x = x + t;
+            }
+            System.out.println(x);
+        } else {
+            System.out.println("inf");
+        }
     }
 }
+/*
+ -
+ x+8+4
+ x+8<0
+ x+9>0
+
+
+ */
