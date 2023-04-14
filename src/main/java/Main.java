@@ -4,36 +4,14 @@ import java.io.InputStreamReader;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
-            int n = Integer.parseInt(reader.readLine());
-            String[] array = reader.readLine().split(" ");
-            sort(array);
-            for (int i = 0; i < n; i++) {
-                System.out.print(array[i]);
-            }
-        }
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        int first= Integer.parseInt(reader.readLine());
+        int second= Integer.parseInt(reader.readLine());
+        int sum = first +second;
+        System.out.println(sum);
+        int answer = first*second;
+        System.out.println(answer);
     }
 
-    public static void sort(String[] array) {
-        for (int i = 1; i < array.length; i++) {
-            String itemToInsert = array[i];
-            int j = i;
-            while (j > 0 && compare(itemToInsert, array[j - 1])) {
-                // если itemToInsert больше чем предыдущие , то меняем их местами
-                array[j] = array[j - 1];
-                j--;
-            }
-            array[j] = itemToInsert;
-        }
-    }
 
-    public static boolean compare(String first, String second) {
-        /*
-        Если первая строка + вторая строка больше чем вторая строка + первая строка
-        Причем сравнивают так this.charAt(k)-другая строка.charAt(k)
-        и чтобы получить булеан сравниваю с нулем
-строки складываю чтобы одиноквая длина была
-         */
-        return first.concat(second).compareTo(second.concat(first)) > 0;
-    }
 }
