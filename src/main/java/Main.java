@@ -1,39 +1,60 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
-        try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
-            int n = Integer.parseInt(reader.readLine());
-            String[] array = reader.readLine().split(" ");
-            sort(array);
-            for (int i = 0; i < n; i++) {
-                System.out.print(array[i]);
+    static char[] alphabet = "abcdefghijklmnopqrstuvwxyz".toCharArray();
+    static char[] punctuation = ",.!?-".toCharArray();
+
+    public static void main(String[] args) throws java.lang.Exception {
+        Scanner sc = new Scanner(System.in); //System.in is a standard input stream
+        while (sc.hasNextLine()) {
+            String[] line = sc.nextLine().split("\\.");
+        StringBuilder response = new StringBuilder();
+            for (int q = 0; q < line.length; q++) {
+                String[] point = line[q].split(" ");
+                for (int i = 0; i < point.length - 1; i++) {
+                    String word = point[i];
+                    if (word.equals("Мистера")) {
+                        System.out.println(word);
+                    }
+                    if (!word.toLowerCase().equals(word) && isRussian(word)) {
+                        String nextWord = point[i + 1];
+                        if (!nextWord.toLowerCase().equals(nextWord) && isRussian(nextWord)) {
+                            word = cleanWord(word);
+                            nextWord = cleanWord(nextWord);
+                            if (q == 0) {
+                                response.append(word);
+                                response.append(" ");
+                                response.append(nextWord);
+                            } else {
+                                response.append(", ");
+                                response.append(word);
+                                response.append(" ");
+                                response.append(nextWord);
+                            }
+                            i = i + 1;
+                        }
+                    }
+
+                }
             }
+            System.out.println(response);
         }
+
     }
 
-    public static void sort(String[] array) {
-        for (int i = 1; i < array.length; i++) {
-            String itemToInsert = array[i];
-            int j = i;
-            while (j > 0 && compare(itemToInsert, array[j - 1])) {
-                // если itemToInsert больше чем предыдущие , то меняем их местами
-                array[j] = array[j - 1];
-                j--;
+    public static boolean isRussian(String word) {
+        char[] array = word.toCharArray();
+        for (char letter : array) {
+            for (char type : alphabet) {
+                if (letter == type) {
+                    return false;
+                }
             }
-            array[j] = itemToInsert;
         }
+        return true;
     }
 
-    public static boolean compare(String first, String second) {
-        /*
-        Если первая строка + вторая строка больше чем вторая строка + первая строка
-        Причем сравнивают так this.charAt(k)-другая строка.charAt(k)
-        и чтобы получить булеан сравниваю с нулем
-строки складываю чтобы одиноквая длина была
-         */
-        return first.concat(second).compareTo(second.concat(first)) > 0;
+    public static String cleanWord(String word) {
+        return word.replaceAll("[!\"#$%&'()*+,-./:;<=>?@\\[\\]^_`{|}~]", "");
     }
 }
