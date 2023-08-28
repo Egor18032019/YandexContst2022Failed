@@ -1,60 +1,95 @@
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
-    static char[] alphabet = "abcdefghijklmnopqrstuvwxyz".toCharArray();
-    static char[] punctuation = ",.!?-".toCharArray();
+    private static BufferedReader reader = null;
+    public static int N; //количество мест
+    public static int M; //количество выделенных часов
+//    минимальное количество печенек K
 
-    public static void main(String[] args) throws java.lang.Exception {
-        Scanner sc = new Scanner(System.in); //System.in is a standard input stream
-        while (sc.hasNextLine()) {
-            String[] line = sc.nextLine().split("\\.");
-        StringBuilder response = new StringBuilder();
-            for (int q = 0; q < line.length; q++) {
-                String[] point = line[q].split(" ");
-                for (int i = 0; i < point.length - 1; i++) {
-                    String word = point[i];
-                    if (word.equals("Мистера")) {
-                        System.out.println(word);
-                    }
-                    if (!word.toLowerCase().equals(word) && isRussian(word)) {
-                        String nextWord = point[i + 1];
-                        if (!nextWord.toLowerCase().equals(nextWord) && isRussian(nextWord)) {
-                            word = cleanWord(word);
-                            nextWord = cleanWord(nextWord);
-                            if (q == 0) {
-                                response.append(word);
-                                response.append(" ");
-                                response.append(nextWord);
-                            } else {
-                                response.append(", ");
-                                response.append(word);
-                                response.append(" ");
-                                response.append(nextWord);
-                            }
-                            i = i + 1;
-                        }
-                    }
-
-                }
-            }
-            System.out.println(response);
-        }
-
+    public static void main(String[] args) throws Exception {
+        init();
+        run();
     }
 
-    public static boolean isRussian(String word) {
-        char[] array = word.toCharArray();
-        for (char letter : array) {
-            for (char type : alphabet) {
-                if (letter == type) {
-                    return false;
-                }
-            }
-        }
-        return true;
+    private static void init() {
+        reader = new BufferedReader(new InputStreamReader(System.in));
     }
 
-    public static String cleanWord(String word) {
-        return word.replaceAll("[!\"#$%&'()*+,-./:;<=>?@\\[\\]^_`{|}~]", "");
+    private static void run() throws IOException {
+        String[] firstLine = reader.readLine().split(" ");
+        N = Integer.parseInt(firstLine[0]); // места
+        M = Integer.parseInt(firstLine[1]); // время
+        if (N > M) {
+            System.out.println(0);
+            return;
+        }
+        int max = 0;
+        int min = Integer.MAX_VALUE;
+        int withCookies = 0;
+        int sum = 0;
+        List<Integer> allCookies = new ArrayList<>();
+        for (int i = 0; i < N; i++) {
+            String line = reader.readLine();
+            int number = Integer.parseInt(line);
+            if (number > max) max = number;
+            if (number < min) min = number;
+
+            if (number != 0) {
+                sum = sum + number;
+                withCookies++;
+                allCookies.add(number);
+            }
+        }
+//         int dif = M - N + 1;
+        if (withCookies == M) {
+            System.out.println(max);
+            return;
+        }
+        if (withCookies == 0) {
+            System.out.println(0);
+            return;
+        }
+
+        int average = canEatAllCookies((sum / M), allCookies); //21
+        System.out.println(average);
+    }
+
+    //. Последний статус: превышение лимита времени выполнения
+    private static int canEatAllCookies(int average, List<Integer> allCookies) {
+        int score = M;
+// 33
+        int maxDif = 1;
+
+        for (int point : allCookies) {
+            double x = point;
+            double y = average;
+            int foo = (int) Math.ceil(x / y);
+
+            boolean isTrue = Double.compare(point, (average * foo)) > 0;
+//            if (point > average * foo) {
+            if (isTrue) {
+                double up = point % average;
+                double down = (int) Math.round(x / y);
+
+                int diff = (int) Math.round(up / down);
+
+                if (diff > maxDif) {
+                    maxDif = diff;
+                }
+            }
+
+
+            score = score - foo;
+        }
+
+        if (score >= 0) {
+            return average;
+        } else {
+            return canEatAllCookies(average + maxDif, allCookies);
+        }
     }
 }
